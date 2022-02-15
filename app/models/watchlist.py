@@ -12,9 +12,8 @@ class Watchlist(db.Model):
         db.ForeignKey('stocks.id'))
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
-    user = db.relationship('User', back_populates='watchlistt')
-    stock = db.relationship('Stock', back_populates='watchlistt')
-
+    user = db.relationship('User', back_populates='watchlist')
+    stock = db.relationship('Stock', back_populates='watchlist')
 
 
     def to_dict(self):
