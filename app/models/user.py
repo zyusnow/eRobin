@@ -1,4 +1,5 @@
 from .db import db
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -10,6 +11,12 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    first_name = db.Column(db.String(40), nullable=False)
+    last_name = db.Column(db.String(40), nullable=False)
+    init_balance=db.Column(db.Float(255), nullable=False)
+    curr_balance=db.Column(db.Float(255), nullable=False)
+    createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
+
 
     @property
     def password(self):
@@ -26,5 +33,9 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'first_name':self.first_name,
+            'last_name':self.last_name,
+            'init_balance':self.init_balance,
+            'curr_balance':self.curr_balance
         }
