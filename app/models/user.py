@@ -1,3 +1,4 @@
+from app.models import transaction
 from .db import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -16,7 +17,10 @@ class User(db.Model, UserMixin):
     init_balance=db.Column(db.Float, nullable=False)
     curr_balance=db.Column(db.Float, nullable=False)
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    
+
+    transaction = db.relationship('Transaction', back_populates='user')
+    watchlist = db.relationship('Watchlist', back_populates='user')
+    holding = db.relationship('Holding', back_populates='user')
 
     @property
     def password(self):
