@@ -13,10 +13,10 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     first_name = db.Column(db.String(40), nullable=False)
     last_name = db.Column(db.String(40), nullable=False)
-    init_balance=db.Column(db.Float(255), nullable=False)
-    curr_balance=db.Column(db.Float(255), nullable=False)
+    init_balance=db.Column(db.Float, nullable=False)
+    curr_balance=db.Column(db.Float, nullable=False)
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
-
+    
 
     @property
     def password(self):
