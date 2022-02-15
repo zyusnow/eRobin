@@ -15,6 +15,10 @@ class Transaction(db.Model):
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updatedAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
+    user = db.relationship('User', back_populates='transaction')
+    stock = db.relationship('Stock', back_populates='transaction')
+
+
     def to_dict(self):
         return {
           'id': self.id,
