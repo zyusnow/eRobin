@@ -1,6 +1,6 @@
-# Flask React Project
+# Welcome to eRobin.
 
-This is the starter for the Flask React project.
+I'm currently working on RobinHood clone. 
 
 ## Getting started
 
