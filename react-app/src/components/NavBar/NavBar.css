@@ -1,0 +1,51 @@
+.navbar_container{
+    width: 92%;
+    height: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.navbar_right{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#nav_head{
+    text-decoration: none;
+    color:black;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.nav_auth{
+    font-size:1em;
+    font-weight: 550;
+    text-decoration: none;
+    color:black;
+}
+
+#nav_signup{
+    display:flex;
+    background-color: var(--dark_green);
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 44px;
+    border-radius:24px;
+    margin-left: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.error_msg{
+    font-size: 0.9em;
+    padding-bottom: 0.4em;
+    font-style: oblique;
+    text-align: center;
+}

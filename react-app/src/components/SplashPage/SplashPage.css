@@ -1,0 +1,79 @@
+.splash1_container{
+    background-color: var(--light_green);
+    width: 100%;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    border-bottom:1px solid rgb(128, 128, 128);
+	top: 0;
+	right: 0;
+	left: 0;
+    margin: 0 auto 0;
+}
+
+.splash1_sub_container {
+    height: 100%;
+    max-width: 1280px;
+    width: 80%;
+}
+
+.splash1_sub_content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.splash1_left {
+    width: 45%;
+    font-weight: 500;
+    padding-left: 1em;
+    z-index: 10;
+}
+
+.splash1_title{
+    font-size: 4em;
+    font-size: 600;
+    z-index: 12;
+}
+
+.splash1_left p{
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 32px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+#signup{
+    height: 48px;
+    width: 150px;
+    border-radius: 24px;
+    border: none;
+    color:white;
+    background-color: black;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.splash1_right{
+    height:80%;
+    display: flex;
+    width: 55%;
+}
+
+.splash1_image{
+    width:620px;
+    z-index: 1;
+    position: absolute;
+
+}
+
+#splash1_video{
+    width: 620px;
+    position: absolute;
+    background-color: transparent;
+    z-index: 0;
+}

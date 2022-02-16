@@ -1,0 +1,142 @@
+.signup_container{
+    display: flex;
+    height: 100%;
+}
+
+.signup_left{
+    width:58%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.error_container{
+
+}
+
+.signup_left_sub{
+    width: 64%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup_title{
+    font-size: 1.8em;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+.signup_heading{
+    font-size: 1.8em;
+    margin-bottom: 0.4em;
+    font-weight: 500;
+}
+
+.signup_sub_heading{
+    margin-bottom: 3em;
+}
+.signup_requirement{
+    font-size: 0.9em;
+    margin-bottom: 2em;
+    font-weight: 600;
+}
+
+#signup_form{
+    display:flex;
+    flex-direction: column;
+}
+
+.full_name{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+}
+
+.full_name > input{
+    width:46%;
+    height:38px;
+    border:1px solid var(--border_grey);
+    background-color:white;
+    padding-left: 1em;
+}
+
+
+#sign_up_form > input{
+    width:100%;
+    border:1px solid var(--border_grey);
+    height:38px;
+    background-color:white;
+    padding-left: 1em;
+    margin-bottom:20px;
+}
+
+.signup_btn_container{
+    display: flex;
+    align-items: center;
+}
+
+.signup_btn{
+    width: 180px;
+    height: 48px;
+    background-color: var(--dark_green);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.signup_btn:hover{
+    background-color:var(--green_btn_hover);
+}
+
+.to_login{
+    padding-left: 2em;
+    line-height: 1.6em;
+    font-size: 0.9em;
+    padding-top: 1em;
+}
+
+.to_login a{
+    text-decoration: none;
+    color:var(--dark_green);
+    font-weight: 600;
+}
+
+.error_msg{
+    font-size: 0.9em;
+    padding-bottom: 0.4em;
+    font-style: oblique;
+    text-align: center;
+}
+
+/* right */
+.signup_right{
+    background-color: whitesmoke;
+    width:42%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-grow: 1;
+
+}
+.signup_right_sub{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: 88px 0;
+}
+
+.signup_right_title{
+    font-weight: 700;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+}
+.signup_right_content{
+    margin-bottom: 3em;
+    font-size: 0.9em;
+    line-height: 2em;
+}
