@@ -7,8 +7,8 @@ import './SignUp.css'
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState("")
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState("")
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -16,7 +16,7 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    const data = await dispatch(signUp(username, email, password));
+    const data = await dispatch(signUp(username, email, password, first_name, last_name));
     if (data) {
       setErrors(data)
     }
@@ -58,25 +58,25 @@ const SignUpForm = () => {
             <div className='signup_requirement'>Please enter your full legal name. Your legal name should match any form of government ID.</div>
           </div>
           <form id="sign_up_form" onSubmit={onSignUp}>
-            <div>
+            <div className='error_container'>
               {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
+                <div className= "error_msg" key={ind}>{error}</div>
               ))}
             </div>
             <div className='full_name'>
               <input
                 type='text'
-                name='firstName'
+                name='first_name'
                 onChange={updateFirstName}
-                value={firstName}
+                value={first_name}
                 placeholder="First name"
                 required
               ></input>
               <input
                 type='text'
-                name='lastName'
+                name='last_name'
                 onChange={updateLastName}
-                value={lastName}
+                value={last_name}
                 placeholder="Last name"
                 required
               ></input>

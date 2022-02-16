@@ -11,6 +11,9 @@
     align-items: center;
     height: 100%;
 }
+.error_container{
+
+}
 
 .signup_left_sub{
     width: 64%;
@@ -102,7 +105,12 @@
     font-weight: 600;
 }
 
-
+.error_msg{
+    font-size: 0.9em;
+    padding-bottom: 0.4em;
+    font-style: oblique;
+    text-align: center;
+}
 
 /* right */
 .signup_right{

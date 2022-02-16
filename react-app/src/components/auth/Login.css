@@ -103,3 +103,10 @@
     font-weight: 600;
     color: black;
 }
+
+.error_msg{
+    font-size: 0.9em;
+    padding-bottom: 0.4em;
+    font-style: oblique;
+    text-align: center;
+}
