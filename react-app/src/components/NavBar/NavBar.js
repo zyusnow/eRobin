@@ -36,9 +36,12 @@ const NavBar = () => {
       )}
       {
         user && (
-          <div>
-              <SearchBar />
-             <LogoutButton />
+          <div className='auth_narbar'>
+            <NavLink to="/" >
+              <i className="fa-solid fa-feather-pointed"></i>
+            </NavLink>
+            <SearchBar />
+            <LogoutButton />
           </div>
         )
       }

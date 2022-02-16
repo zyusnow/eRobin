@@ -49,3 +49,15 @@
     font-style: oblique;
     text-align: center;
 }
+
+/* auth navbar */
+.auth_narbar {
+    display: grid;
+    grid-template-columns: 1fr 4fr 2fr;
+}
+
+.bird_logo{
+    width: 2em;
+    height: 2em;
+    color: red;
+}
