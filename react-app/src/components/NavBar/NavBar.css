@@ -1,6 +1,6 @@
 .navbar_container{
     width: 92%;
-    height: 60px;
+    height: 64px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -24,7 +24,7 @@
 }
 
 .nav_auth{
-    font-size:1.1em;
+    font-size:1em;
     font-weight: 550;
     text-decoration: none;
     color:black;
@@ -36,9 +36,16 @@
     align-items: center;
     justify-content: center;
     width: 130px;
-    height: 48px;
+    height: 44px;
     border-radius:24px;
     margin-left: 30px;
     border: none;
     cursor: pointer;
+}
+
+.error_msg{
+    font-size: 0.9em;
+    padding-bottom: 0.4em;
+    font-style: oblique;
+    text-align: center;
 }

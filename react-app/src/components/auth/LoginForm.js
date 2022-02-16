@@ -40,9 +40,9 @@ const LoginForm = () => {
       <div className="right_container">
         <div className='login_title'>Log in to eRobin</div>
         <form className="form_container" onSubmit={onLogin}>
-          <div>
+          <div className='error_container'>
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div className= "error_msg"key={ind}>{error}</div>
             ))}
           </div>
           <div className='form_sub_container'>
@@ -64,12 +64,15 @@ const LoginForm = () => {
               value={password}
               onChange={updatePassword}
             />
-            <button id="login_button" type='submit'>Log In</button>
+            <div>
+              <button className="login_button" type='submit'>Log In</button>
+              <button className="login_button demo" type='submit'>Try Demo</button>
+            </div>
           </div>
         </form>
         <div className='additional'>
           <div>Not on eRobin?</div>
-          <div><NavLink to = "/signup"> Create an account</NavLink></div>
+          <div><NavLink className="to_signup" to = "/signup"> Create an account</NavLink></div>
         </div>
       </div>
     </div>
