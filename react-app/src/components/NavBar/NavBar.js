@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import SearchBar from './Search';
 import './NavBar.css'
 
 
@@ -35,7 +36,10 @@ const NavBar = () => {
       )}
       {
         user && (
-           <LogoutButton />
+          <div>
+              <SearchBar />
+             <LogoutButton />
+          </div>
         )
       }
     </nav>
