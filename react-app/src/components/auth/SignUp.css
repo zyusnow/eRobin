@@ -65,7 +65,10 @@
     margin-bottom:20px;
 }
 
-
+.signup_btn_container{
+    display: flex;
+    align-items: center;
+}
 
 .signup_btn{
     width: 180px;
@@ -80,7 +83,20 @@
 }
 
 .signup_btn:hover{
-    background-color:rgb(92, 182, 18);
+    background-color:rgb(94, 209, 0);
+}
+
+.to_login{
+    padding-left: 2em;
+    line-height: 1.6em;
+    font-size: 0.9em;
+    padding-top: 1em;
+}
+
+.to_login a{
+    text-decoration: none;
+    color:var(--dark_green);
+    font-weight: 600;
 }
 
 

@@ -105,9 +105,9 @@ const SignUpForm = () => {
                 placeholder="Password"
                 required
               ></input>
-            <div>
+            <div className='signup_btn_container'>
               <button className="signup_btn" type='submit'>Sign Up</button>
-              <div>
+              <div className='to_login'>
                 <div>Already started?</div>
                 <NavLink to="/login">Log in to complete your application</NavLink>
               </div>
