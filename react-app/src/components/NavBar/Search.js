@@ -23,7 +23,7 @@ export default function SearchBar() {
                     placeholder="Search"
                     onChange={(e)=>setSearchValue(e.target.value)}
                 />
-                {/* <button className="search_button" type="submit"><i className="fas fa-search"></i></button> */}
+                <button className="search_button" type="submit"><i className="fas fa-search"></i></button>
             </div>
         </div>
     )
