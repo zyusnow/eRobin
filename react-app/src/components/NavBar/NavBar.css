@@ -1,0 +1,25 @@
+.navbar_container{
+    width: 88%;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.navbar_right{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#nav_head{
+    text-decoration: none;
+    color:black;
+    font-weight: 500;
+    font-size: 1.4em;
+}
+

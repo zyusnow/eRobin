@@ -2,7 +2,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from '../auth/LogoutButton';
+import './NavBar.css'
+
 
 const NavBar = () => {
   const dispatch = useDispatch()
@@ -19,18 +21,23 @@ const NavBar = () => {
             </div>
             <div className='navbar_right'>
               <div>
-                <NavLink to='/login' exact={true} activeClassName='active'>
+                <NavLink id="nav_login" to='/login' exact={true}>
                   Login
                 </NavLink>
               </div>
               <div>
-                <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                <NavLink id="nav_signup" to='/sign-up' exact={true} activeClassName='active'>
                   Sign Up
                 </NavLink>
               </div>
             </div>
           </div>
       )}
+      {
+        user && (
+          <div>LoggedIn</div>
+        )
+      }
     </nav>
 
     // <nav>
