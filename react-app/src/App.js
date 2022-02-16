@@ -8,6 +8,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 // import UsersList from './components/UsersList';
 // import User from './components/User';
 import { authenticate } from './store/session';
+import SplashPage from './components/SplashPage';
+import Portfolio from './components/Portfolio';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,7 +33,7 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path='/signup' exact={true}>
           <SignUpForm />
         </Route>
         {!user && (
@@ -46,12 +48,7 @@ function App() {
           <Portfolio/>
         </Route>
         )}
-        {/* <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
+
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
@@ -61,3 +58,10 @@ function App() {
 }
 
 export default App;
+
+      // <ProtectedRoute path='/users' exact={true} >
+      //     <UsersList/>
+      //   </ProtectedRoute>
+      // <ProtectedRoute path='/users/:userId' exact={true} >
+      //     <User />
+      //   </ProtectedRoute>
