@@ -35,7 +35,7 @@ const NavBar = () => {
       )}
       {
         user && (
-          <div>LoggedIn</div>
+           <LogoutButton />
         )
       }
     </nav>

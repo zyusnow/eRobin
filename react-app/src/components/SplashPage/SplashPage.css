@@ -1,5 +1,5 @@
 .splash1_container{
-    background-color: #C3F53C;
+    background-color: var(--light_green);
     width: 100%;
     height: 650px;
     display: flex;

@@ -32,7 +32,7 @@
 
 #nav_signup{
     display:flex;
-    background-color: rgb(0, 200, 5);
+    background-color: var(--dark_green);
     align-items: center;
     justify-content: center;
     width: 130px;
