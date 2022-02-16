@@ -1,1 +1,9 @@
 /* TODO Add site wide styles */
+h1 {
+    display: block;
+    font-size: 52px;
+}
+
+body {
+    font-family: "Capsule Sans Text", sans-serif;
+}

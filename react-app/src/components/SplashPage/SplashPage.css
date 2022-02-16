@@ -1,0 +1,30 @@
+.splash1_container{
+    display: flex;
+    height: 100%;
+    background-color: rgb(195,245,60);
+    border-bottom:1px solid rgb(36, 36, 36);
+    height:650px;
+    margin:auto;
+    align-items: center;
+
+}
+
+.splash1_title{
+    font-size: 52px;
+    font-size: 600;
+}
+
+.splash1_right{
+    height:80%;
+    display: flex;
+}
+
+.splash1_image{
+    width:620px;
+    z-index: 1;
+}
+
+#splash1_video{
+    width:620px;
+    position: absolute;
+}

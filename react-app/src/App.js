@@ -38,7 +38,6 @@ function App() {
         </Route>
         {!user && (
           <Route path='/' exact={true} >
-            <NavBar />
           <SplashPage/>
           </Route>
         )}
