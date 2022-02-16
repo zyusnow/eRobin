@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import SearchBar from './Search';
 import ProfileButton from './ProfileButton';
+import { FaCrow} from 'react-icons/fa';
 import './NavBar.css'
 
 
@@ -38,9 +39,9 @@ const NavBar = () => {
       {
         sessionUser && (
           <div className='auth_narbar'>
-            {/* <NavLink to="/" > */}
-            <i className="fa-solid fa-crow"></i>
-            {/* </NavLink> */}
+            <NavLink to="/" >
+              <FaCrow className='bird_logo'/>
+            </NavLink>
             <SearchBar />
             <ProfileButton user={sessionUser}/>
           </div>
