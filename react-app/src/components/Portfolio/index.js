@@ -1,6 +1,6 @@
 function Portfolio() {
     return (
-        <h2>Portfolio</h2>
+        <h2>Welcome to eRobin</h2>
     )
 }
 
