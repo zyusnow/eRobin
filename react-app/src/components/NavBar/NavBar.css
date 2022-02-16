@@ -1,13 +1,13 @@
 .navbar_container{
-    width: 88%;
+    width: 92%;
     height: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-left: 6%;
-    margin-right: 6%;
+    margin-left: 4%;
+    margin-right: 4%;
 }
 
 .navbar_right{
@@ -23,3 +23,22 @@
     font-size: 1.4em;
 }
 
+.nav_auth{
+    font-size:1.1em;
+    font-weight: 550;
+    text-decoration: none;
+    color:black;
+}
+
+#nav_signup{
+    display:flex;
+    background-color: rgb(0, 200, 5);
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 48px;
+    border-radius:24px;
+    margin-left: 30px;
+    border: none;
+    cursor: pointer;
+}
