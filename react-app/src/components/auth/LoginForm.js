@@ -46,6 +46,8 @@ const LoginForm = () => {
         <img className="left_img" src="https://res.cloudinary.com/dprnsux1z/image/upload/v1644946476/632fcb3e7ed928b2a960f3e003d10b44_b0l7r4.jpg"></img>
       </div>
       <div className="right_container">
+
+        <div className="right_sub_container">
         <div className='login_title'>Log in to eRobin</div>
         <form className="form_container" onSubmit={onLogin}>
           <div className='error_container'>
@@ -72,7 +74,7 @@ const LoginForm = () => {
               value={password}
               onChange={updatePassword}
             />
-            <div>
+            <div className='log_container'>
               <button className="login_button" type='submit'>Log In</button>
               <button onSubmit={DemoLogin} className="login_button demo" type='submit'>Try Demo</button>
             </div>
@@ -81,6 +83,7 @@ const LoginForm = () => {
         <div className='additional'>
           <div>Not on eRobin?</div>
           <div><NavLink className="to_signup" to = "/signup"> Create an account</NavLink></div>
+        </div>
         </div>
       </div>
     </div>
