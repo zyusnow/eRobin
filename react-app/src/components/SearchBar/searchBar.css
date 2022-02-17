@@ -44,14 +44,21 @@
     align-items: center;
     font-size:0.9em;
     cursor: pointer;
+    padding:0.8em 0.8em;
 }
 .search_info{
     display: flex;
-    text-decoration: none;
+    text-decoration: none
+}
+
+
+.search_item:hover{
+    background-color: rgb(216, 216, 216);
+
 }
 
 .stock_ticker{
     margin-right: 1em;
     text-decoration: none;
-    color:rgb(63, 63, 63)
+    color:rgb(97, 97, 97);
 }

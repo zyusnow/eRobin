@@ -49,12 +49,15 @@ function SearchBar() {
                         {matchedStocks.map((stock) => (
                             <div key={stock[0]} className='search_item'>
                                 <Link className="search_info" onClick={() => setSearchContent("")} to={`/stocks/${stock[0]}`}>
+
+
                                     <div className='stock_ticker ticker_name'>
                                         {stock[0]}
                                     </div>
                                     <div className='stock_ticker ticker_company'>
                                         {stock[1]}
                                     </div>
+
                                 </Link>
                             </div>
                         ))}
