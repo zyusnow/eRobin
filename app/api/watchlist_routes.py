@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import User, db, Watchlist, WatchlistTicker
 from app.forms import WatchlistForm
 
@@ -52,5 +52,18 @@ def edit_watchlist(id):
         return watchlist_to_edit.to_dict()
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+
+@watchlist_routes.route("/delete/<int:id>", methods=['DELETE'])
+@login_required
+def edit_watchlist(id):
+    watchlist_to_delete = Watchlist.query.get(id)
+    if int(current_user.id) == int(watchlist_to_delete.userId):
+        db.session.delete(watchlist_to_delete)
+        db.session.commit()
+        return "Delete successfully"
+    else:
+        return 401
 
 
