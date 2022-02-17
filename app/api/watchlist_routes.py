@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import User, db, Watchlist, WatchlistTicker
+from app.models import db, Watchlist
 from app.forms import WatchlistForm
 
 
@@ -65,5 +65,3 @@ def edit_watchlist(id):
         return "Delete successfully"
     else:
         return 401
-
-

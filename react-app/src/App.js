@@ -10,6 +10,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage';
 import Portfolio from './components/Portfolio';
+import StockPage from './components/StockPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,7 +49,12 @@ function App() {
           <Portfolio/>
         </Route>
         )}
-
+        {user && (
+        <Route path='/stocks/:ticker' exact={true} >
+          <NavBar />
+          <StockPage/>
+        </Route>
+        )}
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
