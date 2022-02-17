@@ -15,12 +15,9 @@ const StockPage = () => {
     const sessionUser = useSelector(state => state?.session?.user);
     const stockInfo = useSelector(state => state.stocks.stockInfo);
 
-
     if (!sessionUser) {
         history.push('/login')
     }
-
-
 
     useEffect(() => {
         dispatch(fetchStockInfo(ticker))
