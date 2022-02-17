@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify
 import requests
 import os
 
-api_token = "af7b339a55msh7ef9bd2aa4fa1a1p1fdb27jsn8b3d5983c6ad"
+api_token = ""
 
 # collect the basic info of a given stock
 def fetch_stock_info(symbol):
