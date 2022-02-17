@@ -4,6 +4,7 @@
     --light_green:#C3F53C;
     --border_grey:rgb(224, 224, 224);
     --green_btn_hover:rgba(0,180,5,1);
+    --border_shadow: rgb(236, 234, 234);
     height:100%;
     position: fixed;
 }

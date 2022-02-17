@@ -2,17 +2,20 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
+import SearchBar from './Search';
+import ProfileButton from './ProfileButton';
+import { FaCrow} from 'react-icons/fa';
 import './NavBar.css'
 
 
 const NavBar = () => {
   const dispatch = useDispatch()
-  const user = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user)
+
   return (
     <nav id="navbar">
       {
-        !user && (
+        !sessionUser && (
           <div className='navbar_container'>
             <div className='navbar_left'>
               <NavLink id="nav_head" to='/' exact={true}>
@@ -34,8 +37,14 @@ const NavBar = () => {
           </div>
       )}
       {
-        user && (
-           <LogoutButton />
+        sessionUser && (
+          <div className='auth_narbar'>
+            <NavLink to="/" >
+              <FaCrow className='bird_logo'/>
+            </NavLink>
+            <SearchBar />
+            <ProfileButton user={sessionUser}/>
+          </div>
         )
       }
     </nav>
