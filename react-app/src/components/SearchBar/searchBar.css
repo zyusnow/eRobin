@@ -1,4 +1,4 @@
-.search_input input[type=text] {
+/* .search_input input[type=text] {
     padding-top: 4%;
     padding-left: 5%;
     padding-bottom: 4%;
@@ -11,13 +11,12 @@
 
 .search_input input[type="text"], textarea {
     background-color : #d1d1d142;
-    color: white;
+    color: black;
   }
 
 .search_container {
     display: flex;
     margin-bottom: 0.3%;
-    /* width: 3.5%; */
 }
 
 
@@ -46,4 +45,4 @@
 
 .test:hover {
     background-color: rgb(172, 172, 172);
-}
+} */

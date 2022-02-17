@@ -72,10 +72,10 @@ const StockPage = () => {
         <div className='stock-detail-container'>
             <h1 id='title'>{name}</h1>
             <div className='Order66'>
-                <button class="button-82-pushable2">
-                    <span class="button-82-shadow2"></span>
-                    <span class="button-82-edge2"></span>
-                    <span class="button-82-front2 text">
+                <button className="button-82-pushable2">
+                    <span className="button-82-shadow2"></span>
+                    <span className="button-82-edge2"></span>
+                    <span className="button-82-front2 text">
                         Buy
                     </span>
                 </button>
@@ -84,10 +84,10 @@ const StockPage = () => {
                 <input placeholder='quantity' onChange={e => setCost((e.target.value * price))} type='number' min='0' ref={ref} />
                 <span id='sellprice'>-$ {cost.toFixed(2)}</span>
                 {/* <button onClick={handleSell} id='sellbutton'>Sell</button> */}
-                <button class="button-82-pushable">
-                    <span class="button-82-shadow"></span>
-                    <span class="button-82-edge"></span>
-                    <span class="button-82-front text">
+                <button className="button-82-pushable">
+                    <span className="button-82-shadow"></span>
+                    <span className="button-82-edge"></span>
+                    <span className="button-82-front text">
                         Sell
                     </span>
                 </button>

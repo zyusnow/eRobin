@@ -23,7 +23,7 @@ function SearchBar() {
         }
         else {
             const matchedRes = allTickers.filter(eachTicker => {
-                return (eachTicker[0].includes(searchContent.toUpperCase()))
+                return (eachTicker[0].includes(searchContent.toUpperCase())) || (eachTicker[1].toUpperCase().includes(searchContent.toUpperCase()))
             })
             // list top 6 of matched cases
             setMatchedStocks(matchedRes.slice(0, 6))
