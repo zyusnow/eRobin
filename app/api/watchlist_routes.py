@@ -23,5 +23,34 @@ def get_watchlist(user_id):
     return jsonify([watchlist.to_dict() for watchlist in user_watchlists])
 
 
-# @watchlist_routes.route("/new", methods=['POST'])
-# @login_required
+@watchlist_routes.route("/new", methods=['POST'])
+@login_required
+def add_watchlist():
+    form = WatchlistForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_watchlist = Watchlist(
+            name = form.data['name']
+        )
+        db.session.add(new_watchlist)
+        db.session.commit()
+        return new_watchlist.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@watchlist_routes.route("/edit/<int:id>", methods=['PUT'])
+@login_required
+def edit_watchlist(id):
+    watchlist_to_edit = Watchlist.query.get(id)
+    form = WatchlistForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        watchlist_to_edit.name = form.data['name']
+        db.session.add(watchlist_to_edit)
+        db.session.commit()
+        return watchlist_to_edit.to_dict()
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
