@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify
 import requests
 import os
 
-api_token = ""
+api_token = "af7b339a55msh7ef9bd2aa4fa1a1p1fdb27jsn8b3d5983c6ad"
 
 # collect the basic info of a given stock
 def fetch_stock_info(symbol):
@@ -31,12 +31,10 @@ def fetch_stock_info(symbol):
 
 def fetch_stock_price(symbol):
     request_url = "https://alpha-vantage.p.rapidapi.com/query"
-
     request_string = {"function":"TIME_SERIES_DAILY", "symbol": symbol.upper(), "outputsize":"compact", "datatype":"json"}
-
     headers = {
-    'x-rapidapi-host': "alpha-vantage.p.rapidapi.com",
-    'x-rapidapi-key': api_token
+        'x-rapidapi-host': "alpha-vantage.p.rapidapi.com",
+        'x-rapidapi-key': api_token
     }
 
     dates = []
@@ -45,7 +43,6 @@ def fetch_stock_price(symbol):
     r = requests.request("GET", request_url, headers=headers, params=request_string)
     if r.status_code == requests.codes.ok:
         price_info = r.json()
-
         price_info = price_info["Time Series (Daily)"]
 
         for date, info in price_info.items():
@@ -54,8 +51,8 @@ def fetch_stock_price(symbol):
 
     return dates, prices
 
-stockdetail_routes = Blueprint("stocks", __name__)
-@stockdetail_routes.route("/<ticker>")
+stock_routes = Blueprint("stocks", __name__)
+@stock_routes.route("/<ticker>")
 def get_stock_info(ticker):
 
     stock_info = fetch_stock_info(ticker)

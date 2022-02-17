@@ -1,35 +1,34 @@
-const SET_STOCK_DETAILS = 'stocks/setStockDetails'
+const GET_STOCK_INFO = 'stocks/getStockInfo'
 
-const setStockDetails = (stockDetails) =>{
+const getStockInfo = (stockInfo) =>{
     return {
-        type: SET_STOCK_DETAILS,
-        stockDetails
+        type: GET_STOCK_INFO,
+        stockInfo
     }
 }
 
 
-export const getStockDetails = ({ticker}) => async (dispatch) => {
+export const fetchStockInfo = ({ticker}) => async (dispatch) => {
     const res = await fetch(`/api/stocks/${ticker}`)
     if(res.ok) {
-        const stockDetails = await res.json();
-        dispatch(setStockDetails(stockDetails))
+        const stockInfo = await res.json();
+        dispatch(getStockInfo(stockInfo))
         return "Success"
     }
     else{
-        return "Fetch stock details ailed"
+        return "Fetch stock details failed"
     }
 }
 
 const initialState = {};
 
-export default function stockDetailsReducer(state=initialState, action){
+export default function stockInfoReducer(state=initialState, action){
     let newState = {...state};
     switch (action.type) {
-        case SET_STOCK_DETAILS:
-            newState.stockDetails = action.stockDetails
+        case GET_STOCK_INFO:
+            newState.stockInfo = action.stockInfo
             return newState
         default:
             return state
     }
 };
-
