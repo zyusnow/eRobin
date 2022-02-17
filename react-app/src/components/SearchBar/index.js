@@ -33,7 +33,7 @@ function SearchBar() {
 
 
     return (
-        <div className='search_container'>
+        <div id='search_container'>
             <div className="search_input">
                 <input
                     type="text"
@@ -43,22 +43,22 @@ function SearchBar() {
                     onChange={(e) => setSearchContent(e.target.value)}>
                 </input>
             </div>
-            <div className="matched_items">
+            <div>
                 {searchContent && (
-                    <>
+                    <div id="search_list">
                         {matchedStocks.map((stock) => (
-                            <div key={stock[0]} className='matched_item'>
-                                <Link onClick={() => setSearchContent("")} to={`/stocks/${stock[0]}`}>
-                                    <div className='stock_ticker'>
+                            <div key={stock[0]} className='search_item'>
+                                <Link className="search_info" onClick={() => setSearchContent("")} to={`/stocks/${stock[0]}`}>
+                                    <div className='stock_ticker ticker_name'>
                                         {stock[0]}
                                     </div>
-                                    <div className='stock_company'>
+                                    <div className='stock_ticker ticker_company'>
                                         {stock[1]}
                                     </div>
                                 </Link>
                             </div>
                         ))}
-                    </>
+                    </div>
                 )}
             </div>
         </div>
