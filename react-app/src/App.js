@@ -9,7 +9,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 // import User from './components/User';
 import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage';
-import Portfolio from './components/Portfolio';
+import PortfolioPage from './components/PortfolioPage';
 import StockPage from './components/StockPage';
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
         {user && (
         <Route path='/' exact={true} >
           <NavBar />
-          <Portfolio/>
+          <PortfolioPage/>
         </Route>
         )}
         {user && (
