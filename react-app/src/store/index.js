@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import search from './search'
 import stocks from './stocks'
+import holding from './holding'
 
 const rootReducer = combineReducers({
   session,
   search,
-  stocks
+  stocks,
+  holding
 });
 
 

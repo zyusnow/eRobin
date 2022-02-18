@@ -18,7 +18,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 @watchlist_routes.route("/<int:user_id>")
 @login_required
-def get_watchlist(user_id):
+def get_watchlists(user_id):
     user_watchlists = Watchlist.query.filter(Watchlist.user_id == user_id).all()
     return jsonify([watchlist.to_dict() for watchlist in user_watchlists])
 

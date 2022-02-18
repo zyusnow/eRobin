@@ -6,10 +6,11 @@ import { useParams } from "react-router";
 import { useHistory } from 'react-router-dom'
 import { fetchStockInfo } from "../../store/stocks";
 import "./StockPage.css";
+import Transaction from "./Transaction";
 
 
 const ReadMoreLess = ({ limit, children }) => {
-    const about = children
+    const about = children ? children : ""
     const [isMore, setIsMore] = useState(false);
 
     const toggleButton = () => {
@@ -32,12 +33,12 @@ const StockPage = () => {
     const stockInfo = useSelector(state => state.stocks.stockInfo);
 
     if (!sessionUser) {
-        history.push('/login')
+        history.push('/login');
     }
 
     useEffect(() => {
-        dispatch(fetchStockInfo(ticker))
-    }, [dispatch, ticker])
+        dispatch(fetchStockInfo(ticker));
+    }, [dispatch, ticker]);
 
 
     let price = ""
@@ -66,6 +67,7 @@ const StockPage = () => {
 
         <div className='stock_container'>
             <div className='stock_container_sub'>
+            {stockInfo && (<>
                 <div className="stock_left">
                     <div className="stock_header_container">
                         <div>{name}</div>
@@ -98,9 +100,7 @@ const StockPage = () => {
                         <div>P/E Ratio<p>{peratio}</p></div>
                     </div>
                 </div>
-                <div className="stock_right">
-                    <h2>Buy and Sell</h2>
-                </div>
+                <Transaction ticker={ticker} price={price}/></>)}
             </div>
         </div>
     )
