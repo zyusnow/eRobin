@@ -121,3 +121,14 @@
     cursor: pointer;
     color:var(--dark_green)
 }
+
+.nav_link{
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+    padding: 0 30px;
+}
+
+.nav_link:hover{
+    color:var(--base_orange)
+}

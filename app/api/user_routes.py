@@ -25,3 +25,4 @@ def user(id):
 def get_transactions(userId):
     transactions = Transaction.query.filter(Transaction.user_id == userId).all()
     return jsonify([transaction.to_dict() for transaction in transactions])
+
