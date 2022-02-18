@@ -29,6 +29,21 @@ export const authenticate = () => async (dispatch) => {
   }
 }
 
+export const getUserInfo = (id) => async (dispatch) => {
+  const response = await fetch(`/api/user/${id}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setUser(data))
+    return "Success";
+  } else {
+    return "Login failed";
+  }
+}
+
 export const login = (email, password) => async (dispatch) => {
   const response = await fetch('/api/auth/login', {
     method: 'POST',
@@ -45,14 +60,9 @@ export const login = (email, password) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
-    return null;
-  } else if (response.status < 500) {
-    const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
+    return "Success";
   } else {
-    return ['An error occurred. Please try again.']
+    return "Login failed";
   }
 
 }
@@ -88,14 +98,10 @@ export const signUp = (username, email, password, first_name, last_name) => asyn
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
-    return null;
-  } else if (response.status < 500) {
-    const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
-  } else {
-    return ['An error occurred. Please try again.']
+    return "Success";
+  }
+  else {
+    return "Signup failed"
   }
 }
 

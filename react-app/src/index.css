@@ -6,7 +6,7 @@
     --green_btn_hover:rgba(0,180,5,1);
     --border_shadow: rgb(236, 234, 234);
     height:100%;
-    position: fixed;
+    /* position: fixed; */
 }
 
 h1 {

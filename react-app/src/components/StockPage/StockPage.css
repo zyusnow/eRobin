@@ -1,2 +1,63 @@
+.stock_container{
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+.stock_container_sub{
+    display: flex;
+    flex-direction: row;
+    width: 72%;
+    margin-left: 14%;
+}
 
 
+.stock_left{
+    width: 70%;
+}
+
+.stock_header_container{
+    font-size: 1.8em;
+    margin-top: 1.2em;
+    font-weight: 500;
+}
+
+.stock_info_header {
+    font-size: 1.6em;
+    margin-top: 2em;
+    font-weight: 500;
+}
+
+.stock_info_container p{
+    font-size: 16px;
+    line-height: 1.3em;
+}
+
+
+
+.stock_info_content{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    font-weight: 600;
+}
+
+.stock_info_content p{
+    font-weight: 500;
+    margin-top: 0.4em;
+}
+
+.read_more_btn {
+    border: none;
+    background-color: transparent;
+    color: rgb(255, 90, 14);
+    font-size: 0.9em;
+    font-weight: 600;
+    font-family: "Capsule Sans Text", sans-serif;
+}
+
+
+/* right */
+.stock_right{
+    width: 50%;
+}
