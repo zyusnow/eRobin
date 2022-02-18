@@ -3,8 +3,12 @@
     --dark_green:rgb(0, 200, 5);
     --light_green:#C3F53C;
     --border_grey:rgb(224, 224, 224);
+    --text_grey: rgb(153, 153, 153);
     --green_btn_hover:rgba(0,180,5,1);
     --border_shadow: rgb(236, 234, 234);
+    --base_orange:rgb(255,80,0);
+    --base_orange_hover:rgba(230,72,0,1);
+    --disable_bg:rgba(19, 1, 1, 0.2);
     height:100%;
     /* position: fixed; */
 }

@@ -33,6 +33,8 @@ function ProfileButton({ user }) {
 
     return (
       <div className="nav_right">
+        <Link className="nav_link" to='/'>Profile</Link>
+        <Link className="nav_link" to='/transactions'>Transactions</Link>
         <button className='nav_right_menu' onClick={openMenu}>
           <i className="fas fa-user-circle"></i>
         </button>
@@ -41,12 +43,6 @@ function ProfileButton({ user }) {
               <li>
                   {user.first_name} {user.last_name}
               </li>
-            {/* <li>
-              <Link to='/profile'>My Profile</Link>
-            </li> */}
-            {/* <li>
-              <button id="nav_logout" onClick={toAddProduct}>Sell product</button>
-            </li> */}
             <li>
               <button id="nav_logout" onClick={logout}>Log Out</button>
             </li>

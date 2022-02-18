@@ -50,7 +50,7 @@
 .read_more_btn {
     border: none;
     background-color: transparent;
-    color: rgb(255, 90, 14);
+    color: var(--base_orange);
     font-size: 0.9em;
     font-weight: 600;
     font-family: "Capsule Sans Text", sans-serif;
@@ -60,4 +60,81 @@
 /* right */
 .stock_right{
     width: 50%;
+    display: flex;
+    justify-content: right;
+}
+
+.stock_right_sub{
+    position: sticky;
+    width: 300px;
+    top:130px;
+    height:390px;
+    border:1px solid var(--border_grey);
+    box-shadow: 0 0 10px 4px var(--border_shadow);
+}
+
+.trans_header_opt{
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px 20px;
+    padding-right: 2em;
+    padding-left: 0;
+}
+
+.trans_section{
+    margin: 20px 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.trans_erro{
+    font-size: 0.9em;
+    color:var(--base_orange);
+    font-style: oblique;
+    margin-left: 22px;
+    padding: 10px 0;
+}
+
+.trans_section input{
+    height: 1.6em;
+    width: 4em;
+}
+
+.trans_section.portfolio{
+    margin: -5px 22px;
+}
+
+.portfolio_value{
+    color:var(--base_orange);
+}
+
+.valid_order_btn{
+    width: 200px;
+    height: 40px;
+    background-color: var(--base_orange);
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+.unvalid_order_btn{
+    width: 200px;
+    height: 40px;
+    color: var(--text_grey);
+    background-color:var(--disable_bg);
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 50px;
 }
