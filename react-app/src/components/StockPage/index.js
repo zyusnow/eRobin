@@ -17,10 +17,10 @@ const ReadMoreLess = ({ limit, children }) => {
         setIsMore(prevState => !prevState)
     }
     return (
-        <div className="read_more">
+        <p className="read_more">
             {isMore ? about : about.slice(0, limit)}
-            <button className="read_more_btn" onClick={toggleButton}>{isMore ? "Read Less" : "Read More"}</button>
-        </div>
+            <button className="read_more_btn" onClick={toggleButton}>{isMore ? "Read Less" : "...Read More"}</button>
+        </p>
     )
 }
 
