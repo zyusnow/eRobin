@@ -44,3 +44,7 @@
 .add_btn:hover{
     color:var(--base_orange);
 }
+
+.watchlists_contanier{
+    display: flex;
+}
