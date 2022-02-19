@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import ProfileButton from './ProfileButton';
@@ -9,7 +9,6 @@ import './NavBar.css'
 
 
 const NavBar = () => {
-  const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
 
   return (

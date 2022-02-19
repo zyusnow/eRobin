@@ -24,5 +24,6 @@ class Transaction(db.Model):
           'transaction_shares': self.transaction_shares,
           'transaction_price': self.transaction_price,
           'transaction_type': self.transaction_type,
-          'user_id': self.user_id
+          'user_id': self.user_id,
+          'createdAt': self.createdAt
         }
