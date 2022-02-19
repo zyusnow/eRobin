@@ -9,7 +9,7 @@ const setTransations = (transactions) => {
 
 //thunk
 export const getAllTransations = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/${userId}/transactions`);
+    const response = await fetch(`/api/user/${userId}/transactions`);
     if (response.ok) {
         const transactions = await response.json();
         dispatch(setTransations(transactions));

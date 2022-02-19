@@ -43,7 +43,7 @@ const LoginForm = () => {
   return (
     <div className="login_container">
       <div className="left_container">
-        <img className="left_img" src="https://res.cloudinary.com/dprnsux1z/image/upload/v1644946476/632fcb3e7ed928b2a960f3e003d10b44_b0l7r4.jpg"></img>
+        <img alt="left_banner" className="left_img" src="https://res.cloudinary.com/dprnsux1z/image/upload/v1644946476/632fcb3e7ed928b2a960f3e003d10b44_b0l7r4.jpg"></img>
       </div>
       <div className="right_container">
 
