@@ -13,13 +13,15 @@ const getWatchlists = (watchlists) => ({
     watchlists
 });
 
-const deleteWatchlist = (watchlistId) => ({
-    type: DELETE_WATCHLIST,
-    watchlistId
-})
+
+//no need at all
+// const deleteWatchlist = (watchlistId) => ({
+//     type: DELETE_WATCHLIST,
+//     watchlistId
+// })
 
 const editWatchlist = (watchlist) => ({
-    type: DELETE_WATCHLIST,
+    type: EDIT_WATCHLIST,
     watchlist
 })
 
@@ -113,7 +115,7 @@ export const deleteUserWatchlist = (watchlistId) => async dispatch => {
         method: 'DELETE'
     })
     if (response.ok) {
-        dispatch(deleteWatchlist(watchlistId))
+        //dispatch(deleteWatchlist(watchlistId))
         return "Delete successfully"
     }
 }
@@ -136,7 +138,7 @@ export default function watchlistReducer(state=initialState, action) {
             return newState
         case DELETE_WATCHLIST:
             newState = {...state}
-            delete newState.watchlist[action.watchlistId]
+            //delete newState.watchlist[action.watchlistId]
             return newState
       default:
         return state;

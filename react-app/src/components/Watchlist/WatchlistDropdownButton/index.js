@@ -6,25 +6,12 @@ import DeleteWatchlistModal from '../../Modals/DeleteWatchlistModal';
 import EditWatchlistModal from '../../Modals/EditWatchlistModal';
 
 
-const WatchlistDropdownButton = (watchlistId) => {
+const WatchlistDropdownButton = ({watchlistId, renderPage, setRenderPage}) => {
     const [showMenu, setShowMenu] = useState(false);
 
     const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
+        setShowMenu(!showMenu);
     };
-
-    useEffect(() => {
-        if (!showMenu) return;
-
-        const closeMenu = () => {
-            setShowMenu(false);
-        };
-
-        document.addEventListener('click', closeMenu);
-
-        return () => document.removeEventListener('click', closeMenu);
-    }, [showMenu]);
 
     return (
         <div>
@@ -34,10 +21,10 @@ const WatchlistDropdownButton = (watchlistId) => {
             {showMenu && (
                 <ul>
                     <li>
-                        <EditWatchlistModal watchlistId = {watchlistId} />
+                        <EditWatchlistModal watchlistId = {watchlistId} renderPage={renderPage} setRenderPage={setRenderPage} setShowMenu={setShowMenu}/>
                     </li>
                     <li>
-                        <DeleteWatchlistModal watchlistId = {watchlistId}/>
+                        <DeleteWatchlistModal watchlistId={watchlistId} renderPage={renderPage} setRenderPage={setRenderPage} setShowMenu={setShowMenu}/>
                     </li>
                 </ul>
             )}

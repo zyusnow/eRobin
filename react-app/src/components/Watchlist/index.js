@@ -45,7 +45,7 @@ const Watchlist = () => {
                     {watchlists && watchlistsArr.map((watchlist) => (
                         <div className="watchlists_contanier" key={watchlist.id}>
                             {watchlist.name}
-                            <WatchlistDropdownButton watchlistId={watchlist.id}/>
+                            <WatchlistDropdownButton watchlistId={watchlist.id} renderPage={renderPage} setRenderPage={setRenderPage}/>
                         </div>
                     ))}
                 </div>

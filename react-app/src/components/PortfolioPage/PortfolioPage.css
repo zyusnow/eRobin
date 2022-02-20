@@ -24,7 +24,7 @@
 .portfolio_right_sub{
     position: sticky;
     width: 300px;
-    height:390px;
+    min-height: 390px;
     border:1px solid var(--border_grey);
     box-shadow: 0 0 10px 4px var(--border_shadow);
     margin-top: 50px;

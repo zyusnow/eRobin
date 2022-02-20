@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { FaRegEdit } from 'react-icons/fa';
-import {Modal} from '../../../Context/Modal'
+import {Modal} from '../../../context/Modal'
 import {editUserWatchlist} from '../../../store/watchlist'
 
 
-function EditWatchlistModal(watchlistId) {
+function EditWatchlistModal({watchlistId, renderPage, setRenderPage, setShowMenu}) {
     const dispatch = useDispatch()
     const watchlist = useSelector(state => state.watchlist?.watchlists[+watchlistId])
 
@@ -26,8 +26,16 @@ function EditWatchlistModal(watchlistId) {
             setErrors(data.errors)
         } else {
             setShowEditModal(false)
+            setRenderPage(!renderPage)
+            setShowMenu(false)
         }
 
+    }
+
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setShowEditModal(false)
+        setShowMenu(false)
     }
 
     return (
@@ -37,7 +45,7 @@ function EditWatchlistModal(watchlistId) {
                     <FaRegEdit className='edit_watchlist_btn' />
                     Edit watchlist
                 </button>
-                {showEditModal && (
+                {(showEditModal === true) && (
                     <Modal onClose={() => setShowEditModal(false)}>
                         <h3>Edit watchlist</h3>
                         <form>
@@ -45,7 +53,7 @@ function EditWatchlistModal(watchlistId) {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
-                            <div onClick={() => setShowEditModal(false)}>Cancel</div>
+                            <div onClick={handleCancel}>Cancel</div>
                             <button onClick={updatedWatchlist} type="submit" disabled={!name}>Update Watchlist</button>
                         </form>
                         <div>
