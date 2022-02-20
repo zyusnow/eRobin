@@ -9,6 +9,7 @@ import "./StockPage.css";
 import Transaction from "./Transaction";
 
 
+
 const ReadMoreLess = ({ limit, children }) => {
     const about = children ? children : ""
     const [isMore, setIsMore] = useState(false);
@@ -64,43 +65,47 @@ const StockPage = () => {
 
 
     return (
-
         <div className='stock_container'>
             <div className='stock_container_sub'>
-            {stockInfo && (<>
-                <div className="stock_left">
-                    <div className="stock_header_container">
-                        <div>{name}</div>
-                        <div>${price}</div>
-                    </div>
-
-                    <hr></hr>
-                    <h1>This is the chart</h1>
-                    <h1>This is the chart</h1>
-                    <h1>This is the chart</h1>
-                    <hr></hr>
-
-                    <div className="stock_info_container">
-                        <div className="stock_info_header">About
-                            <p>
-                                <ReadMoreLess limit={580}>
-                                    {about}
-                                </ReadMoreLess>
-                            </p>
+                {stockInfo && (
+                <>
+                    <div className="stock_left">
+                        <div className="stock_header_container">
+                            <div>{name}</div>
+                            <div>${price}</div>
                         </div>
+
+                        <hr></hr>
+                        <h1>This is the chart</h1>
+                        <h1>This is the chart</h1>
+                        <h1>This is the chart</h1>
+                        <hr></hr>
+
+                        <div className="stock_info_container">
+                            <div className="stock_info_header">About
+                                <p>
+                                    <ReadMoreLess limit={580}>
+                                        {about}
+                                    </ReadMoreLess>
+                                </p>
+                            </div>
+                            <div className="stock_info_content">
+                                <div>Employees<p>{employees}</p></div>
+                                <div>Country<p>{country}</p></div>
+                                <div>Sector<p>{sector}</p></div>
+                            </div>
+                        </div>
+                        <div className="stock_info_header">Key statistics</div>
                         <div className="stock_info_content">
-                            <div>Employees<p>{employees}</p></div>
-                            <div>Country<p>{country}</p></div>
-                            <div>Sector<p>{sector}</p></div>
+                            <div>Marketcap<p>{marketcap}</p></div>
+                            <div>P/E Ratio<p>{peratio}</p></div>
                         </div>
                     </div>
-                    <div className="stock_info_header">Key statistics</div>
-                    <div className="stock_info_content">
-                        <div>Marketcap<p>{marketcap}</p></div>
-                        <div>P/E Ratio<p>{peratio}</p></div>
-                    </div>
-                </div>
-                <Transaction ticker={ticker} price={price}/></>)}
+
+                            <Transaction ticker={ticker} price={price} />
+
+                 </>
+                )}
             </div>
         </div>
     )

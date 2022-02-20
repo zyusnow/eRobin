@@ -19,3 +19,4 @@ def watchlist_exists(form, field):
 
 class WatchlistForm(FlaskForm):
     name = StringField("name", validators = [DataRequired(), watchlist_exists])
+

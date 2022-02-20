@@ -3,7 +3,7 @@ const GET_WATCHLISTS = 'watchlist/GET_WATCHLIST';
 const DELETE_WATCHLIST = 'watchlist/DELETE_WATCHLIST';
 const EDIT_WATCHLIST = 'watchlist/EDIT_WATCHLIST';
 const ADD_TICKER = 'watchlist/ADD_TICKER';
-const DELETE_TICKER = 'watchlist/DELETE_TICKER'
+const DELETE_TICKER = 'watchlist/DELETE_TICKER';
 
 const setWatchlist = (watchlist) => ({
     type: ADD_WATCHLIST,
@@ -26,12 +26,13 @@ const editWatchlist = (watchlist) => ({
     watchlist
 })
 
-const addTicker = (watchlist) => {
+const addTicker = (ticker) => {
     return {
         type: ADD_TICKER,
-        watchlist
+        ticker
     }
 }
+
 
 const deleteTicker = (watchlist) => {
     return {
@@ -143,6 +144,25 @@ export const deleteWatchlistTicker = ({ ticker, tickerId }) => async (dispatch) 
     }
 }
 
+export const addWatchlistTicker = ({ ticker, watchlistId }) => async (dispatch) => {
+    const response = await fetch(`/api/watchlist/add_ticker`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ticker,
+            watchlistId
+        })
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(addTicker(data.ticker_to_add))
+        return data
+    }
+}
+
 
 const initialState = {}
 export default function watchlistReducer(state=initialState, action) {
@@ -165,6 +185,10 @@ export default function watchlistReducer(state=initialState, action) {
             return newState
         case DELETE_TICKER:
             newState = {...state}
+            return newState
+        case ADD_TICKER:
+            newState = {...state}
+            newState[action.ticker.id] = action.ticker
             return newState
       default:
         return state;

@@ -78,3 +78,19 @@ def delete_ticker(id):
     db.session.delete(ticker)
     db.session.commit()
     return "Delete successfully"
+
+@watchlist_routes.route("/add_ticker", methods=['POST'])
+@login_required
+def add_ticker():
+    object = request.json
+    ticker = object['ticker']
+    print(ticker)
+    watchlist_id = object['watchlist_id']
+
+    ticker_to_add = WatchlistTicker(
+        ticker=ticker,
+        watchlist_id=watchlist_id
+    )
+    db.session.add(ticker_to_add)
+    db.session.commit()
+    return {"ticker_to_add": ticker_to_add.to_dict()}
