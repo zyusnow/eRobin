@@ -1,7 +1,9 @@
 const ADD_WATCHLIST = 'watchlist/ADD_WATCHLIST';
 const GET_WATCHLISTS = 'watchlist/GET_WATCHLIST';
-const DELETE_WATCHLIST = 'watchlist/DELETE_WATCHLIST'
-const EDIT_WATCHLIST = 'watchlist/EDIT_WATCHLIST'
+const DELETE_WATCHLIST = 'watchlist/DELETE_WATCHLIST';
+const EDIT_WATCHLIST = 'watchlist/EDIT_WATCHLIST';
+const ADD_TICKER = 'watchlist/ADD_TICKER';
+const DELETE_TICKER = 'watchlist/DELETE_TICKER'
 
 const setWatchlist = (watchlist) => ({
     type: ADD_WATCHLIST,
@@ -12,7 +14,6 @@ const getWatchlists = (watchlists) => ({
     type: GET_WATCHLISTS,
     watchlists
 });
-
 
 //no need at all
 // const deleteWatchlist = (watchlistId) => ({
@@ -25,16 +26,21 @@ const editWatchlist = (watchlist) => ({
     watchlist
 })
 
-// thunk
-// export const getUserWatchlists = (userId) => async dispatch => {
-//     const response = await fetch('/api/watchlist');
-//     if (response.ok) {
-//         const watchlists = await response.json();
-//         dispatch(getWatchlists(watchlists));
-//         return watchlists
-//     }
-// }
+const addTicker = (watchlist) => {
+    return {
+        type: ADD_TICKER,
+        watchlist
+    }
+}
 
+const deleteTicker = (watchlist) => {
+    return {
+        type: DELETE_TICKER,
+        watchlist
+    }
+}
+
+// thunk
 export const getUserWatchlists = (userId) => async dispatch =>{
     const response = await fetch(`/api/watchlist/`, {
       method: 'POST',
@@ -121,6 +127,23 @@ export const deleteUserWatchlist = (watchlistId) => async dispatch => {
 }
 
 
+export const deleteWatchlistTicker = ({ ticker, tickerId }) => async (dispatch)  => {
+    const response = await fetch(`/api/watchlist/delete_ticker/${tickerId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ticker
+        })
+    })
+
+    if (response.ok) {
+        return "Delete successfully"
+    }
+}
+
+
 const initialState = {}
 export default function watchlistReducer(state=initialState, action) {
     let newState;
@@ -139,6 +162,9 @@ export default function watchlistReducer(state=initialState, action) {
         case DELETE_WATCHLIST:
             newState = {...state}
             //delete newState.watchlist[action.watchlistId]
+            return newState
+        case DELETE_TICKER:
+            newState = {...state}
             return newState
       default:
         return state;

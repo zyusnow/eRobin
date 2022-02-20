@@ -47,4 +47,32 @@
 
 .watchlists_contanier{
     display: flex;
+    flex-direction: column;
+}
+
+.watchlists_menu_container{
+    display: flex;
+}
+
+.tickers_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.tickers_container_inner{
+    display: flex;
+}
+
+.w_btn {
+  background-color: Red;
+  border: none;
+  color: white;
+  padding: 0px 0px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.w_btn:hover {
+  background-color: RoyalBlue;
 }

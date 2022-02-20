@@ -11,7 +11,17 @@ def seed_watchlist_ticker():
         watchlist_id = 1
     )
 
-    db.session.add_all([ticker01, ticker02])
+    ticker03 = WatchlistTicker(
+        ticker = 'AAL',
+        watchlist_id = 1
+    )
+
+    ticker04 = WatchlistTicker(
+        ticker = 'CCL',
+        watchlist_id = 1
+    )
+
+    db.session.add_all([ticker01, ticker02, ticker03, ticker04])
     db.session.commit()
 
 def undo_watchlist_ticker():

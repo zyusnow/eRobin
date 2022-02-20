@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Watchlist
+from app.models import db, Watchlist, WatchlistTicker
 from app.forms import WatchlistForm
 
 
@@ -68,3 +68,13 @@ def delete_watchlist(id):
         return "Delete successfully"
     else:
         return 401
+
+
+# add/remove ticker to watchlist routes
+@watchlist_routes.route("/delete_ticker/<int:id>", methods=['PUT'])
+@login_required
+def delete_ticker(id):
+    ticker = WatchlistTicker.query.get(id)
+    db.session.delete(ticker)
+    db.session.commit()
+    return "Delete successfully"
