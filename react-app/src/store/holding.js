@@ -32,7 +32,7 @@ export const getHolding = (ticker, userId) => async dispatch =>{
 export const putOrder = (orderInfo) => async dispatch =>{
   const response = await fetch(`/api/holding/`, {
     method: 'PUT',
-    headers: {
+    headers: { 
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({orderInfo})

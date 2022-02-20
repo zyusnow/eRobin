@@ -5,13 +5,15 @@ import search from './search'
 import stocks from './stocks'
 import holding from './holding'
 import transaction from './transaction'
+import watchlist from './watchlist'
 
 const rootReducer = combineReducers({
   session,
   search,
   stocks,
   holding,
-  transaction
+  transaction,
+  watchlist
 });
 
 

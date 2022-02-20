@@ -39,6 +39,7 @@ function SearchBar() {
                     type="text"
                     name="searchContent"
                     value={searchContent}
+                    autoComplete="off"
                     placeholder="Search"
                     onChange={(e) => setSearchContent(e.target.value)}>
                 </input>

@@ -1,0 +1,78 @@
+.portfolio_container{
+    width: 100%;
+}
+
+.portfolio_container_sub{
+    display: flex;
+    flex-direction: row;
+    width: 72%;
+    margin-left: 14%;
+}
+
+.portfolio_left{
+    width: 70%;
+}
+
+
+.portfolio_header{
+    font-size: 1.8em;
+    margin-top: 1.2em;
+    font-weight: 500;
+}
+
+/* right */
+.portfolio_right_sub{
+    position: sticky;
+    width: 300px;
+    min-height: 390px;
+    border:1px solid var(--border_grey);
+    box-shadow: 0 0 10px 4px var(--border_shadow);
+    margin-top: 50px;
+}
+
+.portf_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px 0px 0px 20px;
+    padding-right: 2em;
+    padding-left: 0;
+}
+
+.add_btn:hover{
+    color:var(--base_orange);
+}
+
+.watchlists_contanier{
+    display: flex;
+    flex-direction: column;
+}
+
+.watchlists_menu_container{
+    display: flex;
+}
+
+.tickers_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.tickers_container_inner{
+    display: flex;
+}
+
+.w_btn {
+  background-color: Red;
+  border: none;
+  color: white;
+  padding: 0px 0px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.w_btn:hover {
+  background-color: RoyalBlue;
+}
