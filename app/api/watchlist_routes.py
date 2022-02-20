@@ -58,13 +58,13 @@ def add_watchlist():
 
 
 
-# @watchlist_routes.route("/delete/<int:id>", methods=['DELETE'])
-# @login_required
-# def edit_watchlist(id):
-#     watchlist_to_delete = Watchlist.query.get(id)
-#     if int(current_user.id) == int(watchlist_to_delete.userId):
-#         db.session.delete(watchlist_to_delete)
-#         db.session.commit()
-#         return "Delete successfully"
-#     else:
-#         return 401
+@watchlist_routes.route("/delete/<int:id>", methods=['DELETE'])
+@login_required
+def delete_watchlist(id):
+    watchlist_to_delete = Watchlist.query.get(id)
+    if int(current_user.id) == int(watchlist_to_delete.user_id):
+        db.session.delete(watchlist_to_delete)
+        db.session.commit()
+        return "Delete successfully"
+    else:
+        return 401

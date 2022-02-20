@@ -1,5 +1,6 @@
 const ADD_WATCHLIST = 'watchlist/ADD_WATCHLIST';
 const GET_WATCHLISTS = 'watchlist/GET_WATCHLIST';
+const DELETE_WATCHLIST = 'watchlist/DELETE_WATCHLIST'
 
 const setWatchlist = (watchlist) => ({
     type: ADD_WATCHLIST,
@@ -11,7 +12,10 @@ const getWatchlists = (watchlists) => ({
     watchlists
 });
 
-
+const deleteWatchlist = (watchlistId) => ({
+    type: DELETE_WATCHLIST,
+    watchlistId
+})
 // thunk
 // export const getUserWatchlists = (userId) => async dispatch => {
 //     const response = await fetch('/api/watchlist');
@@ -39,14 +43,12 @@ export const getUserWatchlists = (userId) => async dispatch =>{
         dispatch(getWatchlists(watchlists));
         return "Success";
     } else {
-        return "Fetch holding failed";
+        return "Fetch watchlist failed";
     }
 }
 
 export const addWatchlist = ({name, userId}) => async dispatch => {
-    console.log(name)
-    console.log(userId)
-
+//{name, userId} must have {}, if without {}, name will be name and userId
     const response = await fetch(`/api/watchlist/new`, {
         method: 'POST',
         headers: {
@@ -65,13 +67,24 @@ export const addWatchlist = ({name, userId}) => async dispatch => {
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
-            return data.errors;
+            return data;
         }
     } else {
         return ['An error occurred. Please try again.']
     }
 }
 
+
+
+export const deleteUserWatchlist = (watchlistId) => async dispatch => {
+    const response = await fetch(`/api/watchlist/delete/${watchlistId}`, {
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        dispatch(deleteWatchlist(watchlistId))
+        return "Delete successfully"
+    }
+}
 
 
 const initialState = {}
@@ -88,6 +101,10 @@ export default function watchlistReducer(state=initialState, action) {
                 watchlists[watchlist.id] = watchlist
                 return watchlists
             }, {})
+            return newState
+        case DELETE_WATCHLIST:
+            newState = {...state}
+            delete newState.watchlist[action.watchlistId]
             return newState
       default:
         return state;

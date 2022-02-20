@@ -1,4 +1,4 @@
-import Watchlist from "./Watchlist"
+import Watchlist from '../Watchlist'
 import './PortfolioPage.css'
 
 function PortfolioPage() {

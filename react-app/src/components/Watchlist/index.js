@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
-import { getUserInfo } from "../../../store/session";
-import { FaPlus } from 'react-icons/fa';
-import '../PortfolioPage.css'
-import AddWatchlist from "../AddWatchlist";
-import { getUserWatchlists } from "../../../store/watchlist";
+import { getUserInfo } from "../../store/session";
+import { getUserWatchlists } from "../../store/watchlist";
+import { FaPlus, FaRegEdit,FaTrashAlt, FaEllipsisH } from 'react-icons/fa';
+import '../PortfolioPage/PortfolioPage.css';
+import AddWatchlist from '../Watchlist/AddWatchlist'
+import WatchlistDropdownButton from "./WatchlistDropdownButton";
 
 const Watchlist = () => {
     const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const Watchlist = () => {
                     {watchlists && watchlistsArr.map((watchlist) => (
                         <div className="watchlists_contanier" key={watchlist.id}>
                             {watchlist.name}
+                            <WatchlistDropdownButton watchlistId={watchlist.id}/>
                         </div>
                     ))}
                 </div>
