@@ -41,20 +41,20 @@ def add_watchlist():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-# @watchlist_routes.route("/edit/<int:id>", methods=['PUT'])
-# @login_required
-# def edit_watchlist(id):
-#     watchlist_to_edit = Watchlist.query.get(id)
-#     form = WatchlistForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
+@watchlist_routes.route("/edit/<int:id>", methods=['PUT'])
+@login_required
+def edit_watchlist(id):
+    watchlist_to_edit = Watchlist.query.get(id)
+    form = WatchlistForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-#     if form.validate_on_submit():
-#         watchlist_to_edit.name = form.data['name']
-#         db.session.add(watchlist_to_edit)
-#         db.session.commit()
-#         return watchlist_to_edit.to_dict()
+    if form.validate_on_submit():
+        watchlist_to_edit.name = form.data['name']
+        db.session.add(watchlist_to_edit)
+        db.session.commit()
+        return watchlist_to_edit.to_dict()
 
-#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 

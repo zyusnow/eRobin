@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import DeleteWatchlistModal from '../../Modals/DeleteWatchlistModal';
+import EditWatchlistModal from '../../Modals/EditWatchlistModal';
 
 
 const WatchlistDropdownButton = (watchlistId) => {
@@ -33,10 +34,7 @@ const WatchlistDropdownButton = (watchlistId) => {
             {showMenu && (
                 <ul>
                     <li>
-                        <button >
-                            <FaRegEdit className='edit_watchlist_btn' />
-                            Edit watchlist
-                        </button>
+                        <EditWatchlistModal watchlistId = {watchlistId} />
                     </li>
                     <li>
                         <DeleteWatchlistModal watchlistId = {watchlistId}/>

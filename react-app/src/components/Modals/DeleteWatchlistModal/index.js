@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {Modal} from '../../../Context/Modal'
-import { deleteUserWatchlist } from '../../../store/watchlist';
+import {deleteUserWatchlist} from '../../../store/watchlist'
 import { FaTrashAlt } from 'react-icons/fa';
+
 
 function DeleteWatchlistModal(watchlistId) {
         const dispatch = useDispatch();
@@ -19,9 +20,9 @@ function DeleteWatchlistModal(watchlistId) {
         return (
             <div>
                 <button className='delete_btn' onClick={() => setShowModal(true)}>
-                            <FaTrashAlt className='edit_watchlist_btn' />
-                            Delete watchlist
-                        </button>
+                    <FaTrashAlt className='edit_watchlist_btn' />
+                    Delete watchlist
+                </button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <h3>Are you sure you want to delete this watchlist?</h3>

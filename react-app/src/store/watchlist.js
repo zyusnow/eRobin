@@ -1,6 +1,7 @@
 const ADD_WATCHLIST = 'watchlist/ADD_WATCHLIST';
 const GET_WATCHLISTS = 'watchlist/GET_WATCHLIST';
 const DELETE_WATCHLIST = 'watchlist/DELETE_WATCHLIST'
+const EDIT_WATCHLIST = 'watchlist/EDIT_WATCHLIST'
 
 const setWatchlist = (watchlist) => ({
     type: ADD_WATCHLIST,
@@ -16,6 +17,12 @@ const deleteWatchlist = (watchlistId) => ({
     type: DELETE_WATCHLIST,
     watchlistId
 })
+
+const editWatchlist = (watchlist) => ({
+    type: DELETE_WATCHLIST,
+    watchlist
+})
+
 // thunk
 // export const getUserWatchlists = (userId) => async dispatch => {
 //     const response = await fetch('/api/watchlist');
@@ -63,6 +70,31 @@ export const addWatchlist = ({name, userId}) => async dispatch => {
     if (response.ok) {
         const watchlist = await response.json()
         dispatch(setWatchlist(watchlist))
+        return watchlist
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+}
+
+export const editUserWatchlist = ({ watchlistId, name }) => async (dispatch)  => {
+    const response = await fetch(`/api/watchlist/edit/${watchlistId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name
+        })
+    })
+
+    if (response.ok) {
+        const watchlist = await response.json()
+        dispatch(editWatchlist(watchlist))
         return watchlist
     } else if (response.status < 500) {
         const data = await response.json();
