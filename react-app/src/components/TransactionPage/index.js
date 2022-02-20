@@ -45,7 +45,7 @@ const TransactionPage = () => {
                                         <td>{transaction?.transaction_shares}</td>
                                         <td>{transaction?.transaction_price}</td>
                                         <td>{transaction?.transaction_type}</td>
-                                        <td>{transaction?.createdAt.slice(6,16)}</td>
+                                        <td>{transaction?.createdAt.slice(5,16)}</td>
                                     </tr>
                                 ))}
                             </tbody>
