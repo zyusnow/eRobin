@@ -23,5 +23,4 @@ class WatchlistTicker(db.Model):
             "id": self.id,
             "ticker": self.ticker,
             "watchlist_id": self.watchlist_id,
-            # "price": value
         }
