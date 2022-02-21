@@ -44,7 +44,7 @@ const Watchlist = () => {
         <div className="portfolio_right">
             <div className="portfolio_right_sub">
                 <div className="portf_header">
-                    Watchlist
+                    <span>Watchlist</span>
                     <FaPlus className='add_btn' onClick={addWatchlist} />
                 </div>
                 <div>
@@ -58,7 +58,7 @@ const Watchlist = () => {
                         <div className="watchlists_contanier" key={watchlist.id}>
                             <div className="watchlists_menu_container">
                                 <div className="watchlists_header_container">
-                                    <div>
+                                    <div className="watchlists_header_sub">
                                         <FaLightbulb className="fa bulb"/>
                                         {watchlist.name}
                                     </div>
@@ -70,8 +70,10 @@ const Watchlist = () => {
                             <div className="tickers_container">
                                 {watchlist.watchlist_tickers.length > 0 && watchlist?.watchlist_tickers.map((ticker) => (
                                     <div className="tickers_container_inner" key={ticker.id}>
-                                        <div>{ticker.ticker}</div>
-                                        <button type="button" className="w_btn" ><i className="fa fa-close" tickername={ticker.ticker} tickerid={ticker.id} onClick={deleteTicker}/></button>
+                                        <button type="button" className="w_btn" >
+                                            <FaMinus tickername={ticker.ticker} tickerid={ticker.id} onClick={deleteTicker}/>
+                                        </button>
+                                        <span>{ticker.ticker}</span>
                                     </div>
                                 ))}
                             </div>

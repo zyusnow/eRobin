@@ -23,14 +23,16 @@ const AddWatchlist = ({setOpenNewForm, setRenderPage, renderPage}) => {
     }
 
     return (
-        <div>
-             <form>
+        <div className="wl_create_container">
+             <form className="wl_create_form">
                 <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 />
-                <div onClick={() => setOpenNewForm(false)}>Cancel</div>
-                <button onClick={handleNewWatchlist} type="submit" disabled={!name}>Create Watchlist</button>
+                <div >
+                    <button className={(name) ? 'valid_wl_name' : 'unvalid_wl_name'} onClick={handleNewWatchlist} type="submit" disabled={!name}>Create Watchlist</button>
+                    <button className="wl_create_btn" onClick={() => setOpenNewForm(false)}>Cancel</button>
+                </div>
             </form>
             <div>
                 {errors?.length > 0 && <ul className="errors">
