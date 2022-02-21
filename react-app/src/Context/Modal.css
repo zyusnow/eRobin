@@ -23,7 +23,7 @@
   position: absolute;
   width: 440px;
   height: fit-content;
-  padding:40px;
+  padding:20px 40px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 1);
 }
@@ -43,3 +43,33 @@
 }
 
 
+/* add to watchlist modal */
+.add_outer_container{
+  max-height: 100px;
+}
+
+.add_watchlist_container{
+  display: flex;
+  background-color: white;
+}
+
+.edit_watchlist_btn{
+  padding-right: 5px;
+}
+
+.select_container{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add_logo_container{
+  display: flex;
+  width: fit-content;
+}
+
+.label{
+  width: fit-content;
+  min-width: 200px;
+}

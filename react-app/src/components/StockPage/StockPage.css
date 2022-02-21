@@ -142,10 +142,12 @@
 
 
 .add_watchlist_container{
-    margin: 20px 22px;
+    width: 160px;
+    margin:20px 70px;
     color:var(--base_orange);
     border: 1px solid var(--base_orange);
     padding: 10px;
-    text-align: center;
     border-radius: 5px;
+    align-items: center;
+    justify-content: center;
 }
