@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { deleteWatchlistTicker, getUserWatchlists } from "../../store/watchlist";
-import { FaPlus, FaMinus } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaLightbulb } from 'react-icons/fa';
 import AddWatchlist from '../Watchlist/AddWatchlist'
 import WatchlistDropdownButton from "./WatchlistDropdownButton";
 import '../PortfolioPage/PortfolioPage.css';
@@ -57,8 +57,15 @@ const Watchlist = () => {
                     {watchlists && watchlistsArr.map((watchlist) => (
                         <div className="watchlists_contanier" key={watchlist.id}>
                             <div className="watchlists_menu_container">
-                                {watchlist.name}
-                                <WatchlistDropdownButton watchlistId={watchlist.id} renderPage={renderPage} setRenderPage={setRenderPage} />
+                                <div className="watchlists_header_container">
+                                    <div>
+                                        <FaLightbulb className="fa bulb"/>
+                                        {watchlist.name}
+                                    </div>
+                                    <div className="watchlists_header_container_right">
+                                        <WatchlistDropdownButton watchlistId={watchlist.id} renderPage={renderPage} setRenderPage={setRenderPage} />
+                                    </div>
+                                </div>
                             </div>
                             <div className="tickers_container">
                                 {watchlist.watchlist_tickers.length > 0 && watchlist?.watchlist_tickers.map((ticker) => (

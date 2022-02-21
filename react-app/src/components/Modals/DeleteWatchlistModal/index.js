@@ -27,20 +27,19 @@ function DeleteWatchlistModal({watchlistId, renderPage, setRenderPage, setShowMe
         }
         return (
             <div>
-                <button className='delete_btn' onClick={() => setShowModal(true)}>
-                    <FaTrashAlt className='edit_watchlist_logo' />
-                    Delete watchlist
+                <button className='dropdown_menu_btn delete' onClick={() => setShowModal(true)}>
+                    <FaTrashAlt className='fa' />
+                    <p>Delete watchlist</p>
                 </button>
                 {(showModal === true) && (
-                    // <h1>test</h1>
                     <Modal onClose={() => setShowModal(false)}>
                         <div className='delet_modal'>
                             <h3>Are you sure you want to delete this watchlist?</h3>
                             <p>Items in the watchlist will be deleted as well!</p>
-                            <div className='delete_confirm_container'>
+                            <div className='confirm_container'>
                                 <button onClick={handleCancel}>Cancel</button>
                                 <form  onSubmit={handleDelete}>
-                                    <button className="button_submit buttton_confirm"type="submit">Confirm</button>
+                                    <button className="confirm_btn"type="submit">Confirm</button>
                                 </form>
                             </div>
                         </div>

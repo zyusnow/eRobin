@@ -6,7 +6,7 @@ import DeleteWatchlistModal from '../../Modals/DeleteWatchlistModal';
 import EditWatchlistModal from '../../Modals/EditWatchlistModal';
 
 
-const WatchlistDropdownButton = ({watchlistId, renderPage, setRenderPage}) => {
+const WatchlistDropdownButton = ({ watchlistId, renderPage, setRenderPage }) => {
     const [showMenu, setShowMenu] = useState(false);
 
     const openMenu = () => {
@@ -15,19 +15,17 @@ const WatchlistDropdownButton = ({watchlistId, renderPage, setRenderPage}) => {
 
     return (
         <div>
-            <button onClick={openMenu}>
-                <FaEllipsisH/>
+            <button className="wl_dropdown_btn" onClick={openMenu}>
+                <FaEllipsisH className="fa dropdown_btn" />
             </button>
-            {showMenu && (
-                <ul>
-                    <li>
-                        <EditWatchlistModal watchlistId = {watchlistId} renderPage={renderPage} setRenderPage={setRenderPage} setShowMenu={setShowMenu}/>
-                    </li>
-                    <li>
-                        <DeleteWatchlistModal watchlistId={watchlistId} renderPage={renderPage} setRenderPage={setRenderPage} setShowMenu={setShowMenu}/>
-                    </li>
-                </ul>
-            )}
+                {showMenu && (
+            <div >
+                    <div className="wl_dropdown_menu">
+                            <EditWatchlistModal watchlistId={watchlistId} renderPage={renderPage} setRenderPage={setRenderPage} setShowMenu={setShowMenu} />
+                            <DeleteWatchlistModal watchlistId={watchlistId} renderPage={renderPage} setRenderPage={setRenderPage} setShowMenu={setShowMenu} />
+                    </div>
+            </div >
+                )}
         </div>
     )
 }

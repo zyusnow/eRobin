@@ -21,13 +21,18 @@
 }
 
 /* right */
+
 .portfolio_right_sub{
     position: sticky;
     width: 300px;
     min-height: 390px;
+    max-height: 500px;
     border:1px solid var(--border_grey);
     box-shadow: 0 0 10px 4px var(--border_shadow);
     margin-top: 50px;
+    padding-bottom: 18px;
+    overflow: scroll;
+
 }
 
 .portf_header{
@@ -36,7 +41,7 @@
     align-items: center;
     font-size: 18px;
     font-weight: 500;
-    margin: 20px 0px 0px 20px;
+    margin: 20px 0px 20px 20px;
     padding-right: 2em;
     padding-left: 0;
 }
@@ -52,7 +57,74 @@
 
 .watchlists_menu_container{
     display: flex;
+    margin-left: 20px;
 }
+
+.watchlists_header_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    justify-content:space-between;
+}
+
+.watchlists_header_container_right{
+    padding-right: 20px;
+}
+
+.fa{
+    padding-right: 6px;
+}
+/* watchlist dropdown  */
+.wl_dropdown_menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    border-radius: 6px;
+    right:30px;
+    width: 160px;
+    height: 100px;
+    background-color:white;
+    z-index: 100;
+    box-shadow: 0px 8px 20px rgba(110, 110, 110, 0.55);
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.wl_dropdown_btn{
+    display: block;
+    border: none;
+    background-color: transparent;
+}
+
+.dropdown_menu_btn{
+    background-color: transparent;
+    border:none;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0;
+    cursor: pointer;
+    margin-bottom: -8px;
+}
+
+.dropdown_menu_btn:hover{
+    color:var(--base_orange);
+}
+
+.wl_dropdown_btn:hover{
+    color:var(--base_orange);
+}
+
+.dropdown_menu_btn.delete{
+    margin-top: -10px;
+}
+
+.dropdown_menu_btn p{
+    font-size: 1.1em;
+}
+
+/* --------------- */
+
 
 .tickers_container{
     display: flex;

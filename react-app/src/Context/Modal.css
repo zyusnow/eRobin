@@ -27,7 +27,7 @@
   padding:20px 40px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 1);
-  overflow:scroll
+  overflow:scroll;
 }
 
 #modal-content input{
@@ -114,4 +114,53 @@ h2{
 
 .btn:hover{
   cursor: pointer;
+}
+
+
+/* delete modal */
+.delet_modal{
+  display: flex;
+  flex-direction: column;
+}
+
+h3{
+  margin-top: 32px;
+}
+
+.confirm_container{
+  display: flex;
+  margin-top: 30px;
+}
+
+.confirm_container button{
+  margin-right: 20px;
+  display: flex;
+  background-color: white;
+  color:var(--base_orange);
+  border: 1px solid var(--base_orange);
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.confirm_container button:hover{
+  cursor: pointer;
+}
+
+.confirm_container .confirm_btn{
+  background-color: var(--dark_green);
+  border-color: var(--dark_green);
+  color: white;
+}
+
+.confirm_container .confirm_btn:hover{
+  background-color: var(--green_btn_hover);
+}
+
+.edit_wl{
+  margin-right: 40px;
+}
+
+.errors{
+  font-style: oblique;
+  font-size: 0.9em;
 }

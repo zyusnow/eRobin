@@ -1,10 +1,30 @@
 const SET_HOLDING = "holding/SET_HOLDING";
+const SET_ALL_HOLDING = "holding/SET_ALL_HOLDING";
+
+
+const setAllHoldings = (holdings) => {
+  return {
+      type:SET_HOLDING,
+      holdings
+  }
+}
 
 const setHolding = (holding) => {
   return {
       type:SET_HOLDING,
       holding
   }
+}
+
+export const getAllHoldings = (userId) => async dispatch =>{
+  const response = await fetch(`/api/holding/all`)
+  if (response.ok) {
+    const holdings = await response.json();
+        dispatch(setAllHoldings(holdings));
+        return "Success";
+    } else {
+        return "Fetch watchlist failed";
+    }
 }
 
 export const getHolding = (ticker, userId) => async dispatch =>{
@@ -32,7 +52,7 @@ export const getHolding = (ticker, userId) => async dispatch =>{
 export const putOrder = (orderInfo) => async dispatch =>{
   const response = await fetch(`/api/holding/`, {
     method: 'PUT',
-    headers: { 
+    headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({orderInfo})
