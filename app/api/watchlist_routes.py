@@ -82,15 +82,33 @@ def delete_ticker(id):
 @watchlist_routes.route("/add_ticker", methods=['POST'])
 @login_required
 def add_ticker():
-    object = request.json
-    ticker = object['ticker']
-    print(ticker)
-    watchlist_id = object['watchlist_id']
+    add_info_list = request.json['addInfo']
+    for add_info in add_info_list:
+        wl_id = add_info['id']
+        wl_name = add_info['name']
+        add_ticker = add_info['hasTicker']
+        ticker = add_info['ticker']
 
-    ticker_to_add = WatchlistTicker(
-        ticker=ticker,
-        watchlist_id=watchlist_id
-    )
-    db.session.add(ticker_to_add)
-    db.session.commit()
-    return {"ticker_to_add": ticker_to_add.to_dict()}
+        # first need to check whether the ticker exists in the watch list
+        found_case = WatchlistTicker.query.filter_by(ticker=ticker, watchlist_id=wl_id).first()
+
+        # for adding
+        if add_ticker:
+            # add only when no such record in db
+            if not found_case:
+                ticker_to_add = WatchlistTicker(
+                    ticker=ticker,
+                    watchlist_id=wl_id
+                )
+                print(f"*************** add new ticker {ticker} into {wl_name} ")
+                db.session.add(ticker_to_add)
+                db.session.commit()
+        # for removing or no action
+        else:
+            # if there is an existing record, and user doesn't select it, then we need to remove  it from db
+            if found_case:
+                print(f"*************** remove ticker {ticker} from {wl_name} ")
+                db.session.delete(found_case)
+                db.session.commit()
+
+    return "Add ticker successfully"

@@ -2,7 +2,7 @@ const ADD_WATCHLIST = 'watchlist/ADD_WATCHLIST';
 const GET_WATCHLISTS = 'watchlist/GET_WATCHLIST';
 const DELETE_WATCHLIST = 'watchlist/DELETE_WATCHLIST';
 const EDIT_WATCHLIST = 'watchlist/EDIT_WATCHLIST';
-const ADD_TICKER = 'watchlist/ADD_TICKER';
+const SET_TICKERS = 'watchlist/SET_TICKERS';
 const DELETE_TICKER = 'watchlist/DELETE_TICKER';
 
 const setWatchlist = (watchlist) => ({
@@ -26,13 +26,12 @@ const editWatchlist = (watchlist) => ({
     watchlist
 })
 
-const addTicker = (ticker) => {
+const setTickers = (tickers) => {
     return {
-        type: ADD_TICKER,
-        ticker
+        type: SET_TICKERS,
+        tickers
     }
 }
-
 
 const deleteTicker = (watchlist) => {
     return {
@@ -42,6 +41,27 @@ const deleteTicker = (watchlist) => {
 }
 
 // thunk
+// export const getAddedTickers = (watchLists) => async dispatch =>{
+//     const response = await fetch(`/api/watchlist/tickers`, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         watchLists
+//       })
+
+//     });
+
+//     if (response.ok) {
+//         const watchlists = await response.json();
+//         dispatch(getWatchlists(watchlists));
+//         return "Success";
+//     } else {
+//         return "Fetch tickers failed";
+//     }
+// }
+
 export const getUserWatchlists = (userId) => async dispatch =>{
     const response = await fetch(`/api/watchlist/`, {
       method: 'POST',
@@ -144,22 +164,24 @@ export const deleteWatchlistTicker = ({ ticker, tickerId }) => async (dispatch) 
     }
 }
 
-export const addWatchlistTicker = ({ ticker, watchlistId }) => async (dispatch) => {
+export const addWatchlistTicker = (addInfo) => async (dispatch) => {
     const response = await fetch(`/api/watchlist/add_ticker`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            ticker,
-            watchlistId
+            addInfo
         })
     })
 
     if (response.ok) {
-        const data = await response.json();
-        dispatch(addTicker(data.ticker_to_add))
-        return data
+        // const data = await response.json();
+        // dispatch(addTicker(data.ticker_to_add))
+        return "Success"
+    }
+    else{
+        return "Falied to add ticker into watchlist"
     }
 }
 
@@ -185,10 +207,6 @@ export default function watchlistReducer(state=initialState, action) {
             return newState
         case DELETE_TICKER:
             newState = {...state}
-            return newState
-        case ADD_TICKER:
-            newState = {...state}
-            newState[action.ticker.id] = action.ticker
             return newState
       default:
         return state;

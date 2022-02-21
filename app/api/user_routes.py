@@ -23,5 +23,5 @@ def user(id):
 @user_routes.route('/<int:userId>/transactions')
 @login_required
 def get_transactions(userId):
-    transactions = Transaction.query.filter(Transaction.user_id == userId).all()
+    transactions = Transaction.query.filter(Transaction.user_id == userId).order_by(Transaction.createdAt.desc()).all()
     return jsonify([transaction.to_dict() for transaction in transactions])

@@ -133,7 +133,7 @@ const Transaction = ({ ticker, price }) => {
                         <div className="portfolio_value">{stockShare}</div>
                     </div>
                 <div>
-                    <AddWatchlistTicker />
+                    <AddWatchlistTicker ticker={ticker.ticker}/>
                 </div>
                 </div>
             </div>
