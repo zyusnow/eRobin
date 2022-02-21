@@ -22,10 +22,12 @@
 #modal-content {
   position: absolute;
   width: 440px;
-  height: fit-content;
+  min-height: 200px;
+  max-height: 480px;
   padding:20px 40px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 1);
+  overflow:scroll
 }
 
 #modal-content input{
@@ -42,34 +44,74 @@
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
-
-/* add to watchlist modal */
+/* ================add to watchlist modal================== */
 .add_outer_container{
   max-height: 100px;
 }
 
-.add_watchlist_container{
+.btn{
   display: flex;
   background-color: white;
+  width: 160px;
+  margin:20px 70px;
+  color:var(--base_orange);
+  border: 1px solid var(--base_orange);
+  padding: 10px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
 }
 
-.edit_watchlist_btn{
-  padding-right: 5px;
+
+/* watchlists css */
+.add_inner_container{
+  max-height: 280px;
+  overflow: scroll;
+  margin: 30px 0;
 }
 
-.select_container{
+.add_watchlists_container{
   width: 80%;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.add_logo_container{
+.add_watchlists{
   display: flex;
   width: fit-content;
+}
+
+.watchlist_logo{
+  padding-right: 8px;
+  color:var(--dark_green)
 }
 
 .label{
   width: fit-content;
   min-width: 200px;
+}
+
+/* confrim css */
+.add_confirm_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+h2{
+  padding: 0 10px;
+}
+
+.btn.confirm{
+  background-color: var(--base_orange);
+  color:white
+}
+
+.btn.cancel{
+  padding: 5px 36px;
+}
+
+.btn:hover{
+  cursor: pointer;
 }

@@ -42,7 +42,7 @@ function EditWatchlistModal({watchlistId, renderPage, setRenderPage, setShowMenu
         <>
             <div>
                 <button className='delete_btn' onClick={() => setShowEditModal(true)}>
-                    <FaRegEdit className='edit_watchlist_btn' />
+                    <FaRegEdit className='edit_watchlist_logo' />
                     Edit watchlist
                 </button>
                 {(showEditModal === true) && (

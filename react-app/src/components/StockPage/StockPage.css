@@ -139,15 +139,3 @@
     align-items: center;
     margin-left: 50px;
 }
-
-
-.add_watchlist_container{
-    width: 160px;
-    margin:20px 70px;
-    color:var(--base_orange);
-    border: 1px solid var(--base_orange);
-    padding: 10px;
-    border-radius: 5px;
-    align-items: center;
-    justify-content: center;
-}

@@ -28,7 +28,7 @@ function DeleteWatchlistModal({watchlistId, renderPage, setRenderPage, setShowMe
         return (
             <div>
                 <button className='delete_btn' onClick={() => setShowModal(true)}>
-                    <FaTrashAlt className='edit_watchlist_btn' />
+                    <FaTrashAlt className='edit_watchlist_logo' />
                     Delete watchlist
                 </button>
                 {(showModal === true) && (
