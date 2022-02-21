@@ -17,7 +17,7 @@ const setHolding = (holding) => {
 }
 
 export const getAllHoldings = (userId) => async dispatch =>{
-  const response = await fetch(`/api/holding/all`)
+  const response = await fetch(`/api/${userId}/holding/all`)
   if (response.ok) {
     const holdings = await response.json();
         dispatch(setAllHoldings(holdings));

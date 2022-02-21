@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import { deleteWatchlistTicker, getUserWatchlists } from "../../store/watchlist";
 import { FaPlus, FaMinus, FaLightbulb } from 'react-icons/fa';
 import AddWatchlist from '../Watchlist/AddWatchlist'
@@ -73,7 +74,7 @@ const Watchlist = () => {
                                         <button type="button" className="w_btn" >
                                             <FaMinus tickername={ticker.ticker} tickerid={ticker.id} onClick={deleteTicker}/>
                                         </button>
-                                        <span>{ticker.ticker}</span>
+                                        <Link className="wl_ticker" to={`/stocks/${ticker.ticker}`}><span>{ticker.ticker}</span></Link>
                                     </div>
                                 ))}
                             </div>

@@ -142,12 +142,19 @@
 
 .tickers_container_inner{
     display: flex;
+    align-items: center;
 }
 .tickers_container_inner span{
     padding: 4px 0px;
+    color: black;
+}
+.wl_ticker{
+    text-decoration: none;
 }
 
-
+.tickers_container_inner:hover{
+    background-color: var(--light_grey_bg)
+}
 
 .w_btn {
     background-color: transparent;
