@@ -10,20 +10,30 @@ const News = () => {
     const news = useSelector(state => state?.news?.news);
     const newsArr = Object.values(news ? news : {})
     console.log(newsArr)
+
     useEffect(() => {
         dispatch(fetchNewsInfo());
     }, [dispatch]);
 
 
     return (
-        <div>
+        <div className="news_outer_contanier">
             <h2>News</h2>
-            <div>
+            <div  className="news_contanier">
                 {news && newsArr.slice(0,8).map((oneNews) => (
-                    <div className="news_contanier" key={oneNews.id}>
-                        <div>{oneNews.title.slice(0,50)}...</div>
-                        <div>{oneNews.date.slice(0,9)}...</div>
-                        <div><hr></hr></div>
+                    <div className="news_sub_container" key={oneNews.title}>
+                        <div>
+                            <img src={oneNews.image}></img>
+                        </div>
+                        <div className="news_content">
+                            <a href={oneNews.url}>{oneNews.title}</a>
+                            <span>{oneNews.summary}</span>
+                            <div className="news_content_bottom">
+                                <span>{oneNews.source}</span>
+                                <span>{oneNews.date}</span>
+                            </div>
+
+                        </div>
                     </div>
                 ))}
             </div>

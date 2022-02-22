@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Watchlist from '../List'
 import News from "./news";
 import './PortfolioPage.css'
+
 function PortfolioPage() {
 
     const sessionUser = useSelector(state => state?.session?.user);

@@ -11,6 +11,7 @@
     --disable_bg:rgba(19, 1, 1, 0.2);
     --light_grey_bg: rgb(248, 248, 248);
     --logo_bg:rgb(165, 42, 42);
+    --text_grey:rgb(134, 134, 134);
     height:100%;
     /* position: fixed; */
 }

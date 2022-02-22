@@ -22,6 +22,7 @@ def fetch_news_info():
                               'title': info['headline'],
                               'image': info['image'],
                               'url': info['url'],
+                              'summary':info['summary'],
                               'date': datetime.fromtimestamp(info['datetime']).strftime('%Y-%m-%d')})
     # print(f"# of news is {len(new_info_list)} ***********")
     # print(new_info_list, "**************************")
