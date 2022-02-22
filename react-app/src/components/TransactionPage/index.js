@@ -8,7 +8,8 @@ import './TransactionPage.css'
 const TransactionPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const transactions = useSelector(state => state?.transaction?.transactions);
+    const transactionsObj = useSelector(state => state?.transaction?.transactions);
+    const transactions = Object.values(transactionsObj ? transactionsObj : {})
     const sessionUser = useSelector(state => state?.session?.user);
     const userId = sessionUser?.id;
 

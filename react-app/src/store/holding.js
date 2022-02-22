@@ -4,7 +4,7 @@ const SET_ALL_HOLDING = "holding/SET_ALL_HOLDING";
 
 const setAllHoldings = (holdings) => {
   return {
-      type:SET_HOLDING,
+      type:SET_ALL_HOLDING,
       holdings
   }
 }
@@ -17,14 +17,12 @@ const setHolding = (holding) => {
 }
 
 export const getAllHoldings = (userId) => async dispatch =>{
-  const response = await fetch(`/api/${userId}/holding/all`)
+  const response = await fetch(`/api/holding/${userId}/all`)
   if (response.ok) {
     const holdings = await response.json();
-        dispatch(setAllHoldings(holdings));
-        return "Success";
-    } else {
-        return "Fetch watchlist failed";
-    }
+    dispatch(setAllHoldings(holdings));
+        return holdings;
+  }
 }
 
 export const getHolding = (ticker, userId) => async dispatch =>{
@@ -72,6 +70,12 @@ export default function holdingReducer(state=initialState, action) {
     switch (action.type) {
       case SET_HOLDING:
         newState.holding = action.holding;
+        return newState
+      case SET_ALL_HOLDING:
+        newState.holdings = action.holdings.reduce((holdings, holding) => {
+          holdings[holding.id] = holding
+          return holdings
+      }, {})
         return newState
       default:
         return state;

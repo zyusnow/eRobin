@@ -5,11 +5,10 @@ from app.models import Holding, Transaction, User, db
 holding_routes = Blueprint("holding",__name__)
 
 
-@holding_routes.route('/all')
+@holding_routes.route('/<int:userId>/all')
 @login_required
-def get_holdings():
-    user_id = request.json['userId']
-    holdings = Holding.query.filter(Holding.user_id == user_id).all()
+def get_holdings(userId):
+    holdings = Holding.query.filter(Holding.user_id == userId).all()
     return jsonify([holding.to_dict() for holding in holdings])
 
 

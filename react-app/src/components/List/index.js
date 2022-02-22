@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { deleteWatchlistTicker, getUserWatchlists } from "../../store/watchlist";
+import { getAllHoldings } from '../../store/holding'
 import { FaPlus, FaMinus, FaLightbulb } from 'react-icons/fa';
-import AddWatchlist from '../Watchlist/AddWatchlist'
+import AddWatchlist from './AddWatchlist'
 import WatchlistDropdownButton from "./WatchlistDropdownButton";
 import '../PortfolioPage/PortfolioPage.css';
+import PortfolioPage from "../PortfolioPage";
 
 const Watchlist = () => {
     const dispatch = useDispatch();
@@ -15,6 +17,9 @@ const Watchlist = () => {
 
     const watchlists = useSelector(state => state?.watchlist?.watchlists);
     const watchlistsArr = Object.values(watchlists ? watchlists : {})
+
+    const holdings = useSelector(state => state?.holding?.holdings);
+    const holdingsArr = Object.values(holdings ? holdings : {})
 
     const [renderPage, setRenderPage] = useState(true);
     const [openNewForm, setOpenNewForm] = useState(false);
@@ -28,9 +33,6 @@ const Watchlist = () => {
         const ticker = e.target.getAttribute('tickername')
         const tickerId = e.target.getAttribute('tickerid')
 
-        console.log(ticker)
-        console.log(tickerId)
-
         const ticker_to_delete = await dispatch(deleteWatchlistTicker({ticker, tickerId}));
         if (ticker_to_delete) {
             setRenderPage(!renderPage)
@@ -41,9 +43,29 @@ const Watchlist = () => {
         dispatch(getUserWatchlists(userId));
     }, [dispatch, renderPage, userId])
 
+
+    useEffect(() => {
+        dispatch(getAllHoldings(userId));
+    }, [dispatch, renderPage, userId])
+
     return (
         <div className="portfolio_right">
             <div className="portfolio_right_sub">
+                <div className="portf_header">
+                    <span>My stock</span>
+                </div>
+                <div>
+                {holdings && holdingsArr.map((holding) => (
+                    <div className="watchlists_contanier" key={holding.id}>
+                        <div>
+                            {holding.ticker}
+                            {holding.total_shares}
+                        </div>
+                        <div>{holding.avg_price.toLocaleString('en')}</div>
+                    </div>
+                ))}
+                </div>
+
                 <div className="portf_header">
                     <span>Watchlist</span>
                     <FaPlus className='add_btn' onClick={addWatchlist} />
