@@ -31,7 +31,7 @@
 
 #search_list{
     height:fit-content;
-    width: 33%;
+    width: 38%;
     overflow-y: scroll;
     position:absolute;
     box-shadow: 0 0 10px 4px var(--border_shadow);
@@ -39,6 +39,8 @@
     margin-bottom: 4em;
     z-index: 200;
     padding: 10px;
+    margin-left: 3%;
+
 }
 
 .search_item{
