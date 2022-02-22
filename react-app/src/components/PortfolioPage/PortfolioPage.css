@@ -21,13 +21,18 @@
 }
 
 /* right */
+
 .portfolio_right_sub{
     position: sticky;
     width: 300px;
     min-height: 390px;
+    max-height: 500px;
     border:1px solid var(--border_grey);
     box-shadow: 0 0 10px 4px var(--border_shadow);
     margin-top: 50px;
+    padding-bottom: 18px;
+    overflow: scroll;
+
 }
 
 .portf_header{
@@ -36,9 +41,13 @@
     align-items: center;
     font-size: 18px;
     font-weight: 500;
-    margin: 20px 0px 0px 20px;
+    margin: 20px 0px 20px 20px;
     padding-right: 2em;
     padding-left: 0;
+}
+
+.portf_header span{
+    color:var(--dark_green)
 }
 
 .add_btn:hover{
@@ -54,25 +63,195 @@
     display: flex;
 }
 
+.watchlists_header_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    justify-content:space-between;
+    background-color: var(--light_grey_bg);
+}
+
+.watchlists_header_sub{
+    margin-left: 20px;
+}
+
+.watchlists_header_container_right{
+    padding-right: 20px;
+}
+
+.fa{
+    padding-right: 6px;
+}
+/* watchlist dropdown  */
+.wl_dropdown_menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    border-radius: 6px;
+    right:30px;
+    width: 160px;
+    height: 100px;
+    background-color:white;
+    z-index: 100;
+    box-shadow: 0px 8px 20px rgba(110, 110, 110, 0.55);
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.wl_dropdown_btn{
+    display: block;
+    border: none;
+    background-color: transparent;
+}
+
+.dropdown_menu_btn{
+    background-color: transparent;
+    border:none;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0;
+    cursor: pointer;
+    margin-bottom: -8px;
+}
+
+.dropdown_menu_btn:hover{
+    color:var(--base_orange);
+}
+
+.wl_dropdown_btn:hover{
+    color:var(--base_orange);
+}
+
+.dropdown_menu_btn.delete{
+    margin-top: -10px;
+}
+
+.dropdown_menu_btn p{
+    font-size: 1.1em;
+}
+
+/* --------------- */
+
+
 .tickers_container{
     display: flex;
     flex-direction: column;
+    padding:16px 24px;
 }
 
 .tickers_container_inner{
     display: flex;
+    align-items: center;
+}
+.tickers_container_inner span{
+    padding: 4px 0px;
+    color: black;
+}
+.wl_ticker{
+    text-decoration: none;
+    color:black;
+}
+
+.tickers_container_inner:hover{
+    background-color: var(--light_grey_bg)
 }
 
 .w_btn {
-  background-color: Red;
-  border: none;
-  color: white;
-  padding: 0px 0px;
-  font-size: 12px;
-  cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 4px 4px;
+    font-size: 12px;
+    cursor: pointer;
+    padding-right: 10px;
 }
 
 /* Darker background on mouse-over */
 .w_btn:hover {
-  background-color: RoyalBlue;
+  color: var(--base_orange);
+}
+
+/* create a wishlist */
+.wl_create_form{
+    margin: 20px 20px;
+}
+
+
+.wl_create_form input{
+    border-radius: 4px;
+    border: 1px solid var(--border_grey);
+    padding:5px;
+    margin-bottom: 12px;
+}
+
+.wl_creat_btn{
+    display: flex;
+}
+
+.wl_create_btn{
+    margin-right: 8px;
+    border: 1px solid var(--base_orange);
+    padding: 4px;
+    border-radius: 4px;
+    background-color: transparent;
+    color:var(--base_orange);
+    cursor: pointer;
+}
+
+.unvalid_wl_name{
+    margin-right: 8px;
+    padding: 4px;
+    border-radius: 4px;
+    color: var(--text_grey);
+    background-color:var(--light_grey_bg);
+    border: 1px solid var(--border_grey);
+}
+
+.valid_wl_name{
+    margin-right: 8px;
+    padding: 4px;
+    border-radius: 4px;
+    color: white;
+    background-color:var(--base_orange);
+    border: 1px solid var(--border_grey);
+    cursor: pointer;
+}
+
+
+/* holdings */
+.holdings_outer_contanier{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.holdings_contanier{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    align-items: center;
+}
+
+.holding_info{
+    display: flex;
+    flex-direction: column;
+}
+
+.holding_shares{
+    font-size: 0.8em;
+    color:var(--base_orange)
+}
+
+
+/* buying power */
+.buying_power_container{
+    width: 95%;
+    padding: 30px 0;
+    border-top: 1px solid var(--border_grey);
+    border-bottom: 1px solid var(--border_grey);
+}
+
+/* news */
+.news_contanier{
+    display: flex;
+    flex-direction: column;
 }

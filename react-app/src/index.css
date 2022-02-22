@@ -9,6 +9,8 @@
     --base_orange:rgb(255,80,0);
     --base_orange_hover:rgba(230,72,0,1);
     --disable_bg:rgba(19, 1, 1, 0.2);
+    --light_grey_bg: rgb(248, 248, 248);
+    --logo_bg:rgb(165, 42, 42);
     height:100%;
     /* position: fixed; */
 }

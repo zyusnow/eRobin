@@ -6,10 +6,12 @@
 
 .search_input input{
     height:2.6em;
-    width: 60%;
+    width: 80%;
     border-radius: 6px;
     border:1px solid var(--border_grey);
     padding-left: 10px;
+    margin-left: 6%;
+
 }
 
 .search_input input:focus{

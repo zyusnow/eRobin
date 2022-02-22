@@ -85,20 +85,20 @@ function AddWatchlistTicker({ ticker }) {
 
     return (
         <div>
-            <button className='add_watchlist_container' onClick={() => setShowModal(true)}>
-                {tickerAdded ? <FaCheck className='edit_watchlist_btn' /> : <FaPlus className='edit_watchlist_btn' />}
+            <button className='btn' onClick={() => setShowModal(true)}>
+                {tickerAdded ? <FaCheck className='edit_watchlist_logo' /> : <FaPlus className='edit_watchlist_logo' />}
                 Add to watchlist
             </button>
             {(showModal === true) && (
                 <Modal className="add_outer_container" onClose={() => setShowModal(false)}>
                     <div>
-                        <h3>Add to your lists</h3>
-                        <div>
+                        <h2>Add to your lists</h2>
+                        <div className='add_inner_container'>
                             {watchlists && watchListAdded.map((wl) => (
-                                <div key={wl.name} className="select_container">
+                                <div key={wl.name} className="add_watchlists_container">
                                     <input className="check_box" type="checkbox" id={wl.name} name={wl.name} value={wl.name} defaultChecked={wl.hasTicker} onChange={handleChange} />
-                                    <div className='add_logo_container'>
-                                        <FaLightbulb className='edit_watchlist_btn' />
+                                    <div className='add_watchlists'>
+                                        <FaLightbulb className='watchlist_logo' />
                                         <label className='label'> {wl.name} </label>
                                     </div>
 
@@ -107,10 +107,10 @@ function AddWatchlistTicker({ ticker }) {
                             ))}
                         </div>
 
-                        <div className='delete_confirm_container'>
-                            <button onClick={handleCancel}>Cancel</button>
+                        <div className='add_confirm_container'>
+                            <button className="btn cancel" onClick={handleCancel}>Cancel</button>
                             <form onSubmit={handleSubmit}>
-                                <button className="button_submit buttton_confirm" type="submit">Confirm</button>
+                                <button className="btn confirm" type="submit">Confirm</button>
                             </form>
                         </div>
                     </div>

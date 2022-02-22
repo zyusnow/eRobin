@@ -1,0 +1,13 @@
+.time_period_container span{
+    padding: 4px 8px;
+}
+
+.time_period_container button{
+    border: none;
+    background-color: transparent;
+    color: var(--dark_green);
+}
+.time_period_container button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}

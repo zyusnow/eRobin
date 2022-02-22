@@ -58,7 +58,7 @@
     height: 80px;
     padding: 0 4vw;
     display: grid;
-    grid-template-columns: 1fr 6fr 3fr;
+    grid-template-columns: 1fr 7fr 2fr 2fr;
     align-items: center;
     justify-content: center;
 }
@@ -131,4 +131,15 @@
 
 .nav_link:hover{
     color:var(--base_orange)
+}
+
+.find_me{
+    display: flex;
+    color: brown;
+}
+
+.find_me a{
+    color:var(--logo_bg);
+    font-size: 18px;
+    padding-left: 8px;
 }

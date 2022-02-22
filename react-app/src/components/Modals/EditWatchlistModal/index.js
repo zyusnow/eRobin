@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { FaRegEdit } from 'react-icons/fa';
-import {Modal} from '../../../context/Modal'
-import {editUserWatchlist} from '../../../store/watchlist'
+import { Modal } from '../../../context/Modal'
+import { editUserWatchlist } from '../../../store/watchlist'
+import '../../../context/Modal.css'
 
-
-function EditWatchlistModal({watchlistId, renderPage, setRenderPage, setShowMenu}) {
+function EditWatchlistModal({ watchlistId, renderPage, setRenderPage, setShowMenu }) {
     const dispatch = useDispatch()
     const watchlist = useSelector(state => state.watchlist?.watchlists[+watchlistId])
 
@@ -41,25 +41,31 @@ function EditWatchlistModal({watchlistId, renderPage, setRenderPage, setShowMenu
     return (
         <>
             <div>
-                <button className='delete_btn' onClick={() => setShowEditModal(true)}>
-                    <FaRegEdit className='edit_watchlist_btn' />
-                    Edit watchlist
+                <button className='dropdown_menu_btn' onClick={() => setShowEditModal(true)}>
+                    <FaRegEdit className='fa' />
+                    <p>Edit watchlist</p>
                 </button>
                 {(showEditModal === true) && (
                     <Modal onClose={() => setShowEditModal(false)}>
-                        <h3>Edit watchlist</h3>
-                        <form>
-                            <input
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            <div onClick={handleCancel}>Cancel</div>
-                            <button onClick={updatedWatchlist} type="submit" disabled={!name}>Update Watchlist</button>
-                        </form>
-                        <div>
-                            {errors?.length > 0 && <ul className="errors">
-                                {errors.map((error, ind) => <li key={ind}>{error}</li>)}
-                            </ul>}
+                        <div className='delet_modal'>
+                            <h3>Edit watchlist</h3>
+                            <form className='edit_wl'>
+                                <input
+
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                                <div>
+                                    {errors?.length > 0 &&
+                                    <ul className="errors">
+                                        {errors.map((error, ind) => <li key={ind}>{error}</li>)}
+                                    </ul>}
+                                </div>
+                                <div className='confirm_container'>
+                                    <button onClick={handleCancel}>Cancel</button>
+                                    <button className="confirm_btn" onClick={updatedWatchlist} type="submit" disabled={!name}>Update Watchlist</button>
+                                </div>
+                            </form>
                         </div>
                     </Modal>
                 )}
