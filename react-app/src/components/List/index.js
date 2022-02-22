@@ -54,14 +54,16 @@ const Watchlist = () => {
                 <div className="portf_header">
                     <span>My stock</span>
                 </div>
-                <div>
+                <div className="holdings_outer_contanier">
                 {holdings && holdingsArr.map((holding) => (
-                    <div className="watchlists_contanier" key={holding.id}>
-                        <div>
-                            {holding.ticker}
-                            {holding.total_shares}
+                    <div className="holdings_contanier" key={holding.id}>
+                        <div className="holding_info">
+                            <div>{holding.ticker}</div>
+                            <div className="holding_shares">{holding.total_shares} shares</div>
                         </div>
-                        <div>{holding.avg_price.toLocaleString('en')}</div>
+                        <div>
+                            {holding.avg_price.toLocaleString('en')}
+                        </div>
                     </div>
                 ))}
                 </div>

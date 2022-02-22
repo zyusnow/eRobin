@@ -215,3 +215,36 @@
     border: 1px solid var(--border_grey);
     cursor: pointer;
 }
+
+
+/* holdings */
+.holdings_outer_contanier{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.holdings_contanier{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    align-items: center;
+}
+
+.holding_info{
+    display: flex;
+    flex-direction: column;
+}
+
+.holding_shares{
+    font-size: 0.8em;
+    color:var(--base_orange)
+}
+
+
+/* buying power */
+.buying_power_container{
+    width: 95%;
+    padding: 30px 0;
+    border-top: 1px solid var(--border_grey);
+    border-bottom: 1px solid var(--border_grey);
+}
