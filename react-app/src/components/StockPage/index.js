@@ -86,11 +86,11 @@ const StockPage = () => {
 
                         <div className="stock_info_container">
                             <div className="stock_info_header">About
-                                <p>
+                                <div>
                                     <ReadMoreLess limit={580}>
                                         {about}
                                     </ReadMoreLess>
-                                </p>
+                                </div>
                             </div>
                             <div className="stock_info_content">
                                 <div>Employees<p>{employees}</p></div>
