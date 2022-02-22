@@ -1,30 +1,30 @@
 from turtle import title
 from flask import Blueprint, jsonify
-import requests
 import os
+import finnhub
+from datetime import datetime
+
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
+FINN_API_KEY = os.environ.get('FINN_API_KEY')
 
 # collect the basic info of a given stock
 def fetch_news_info():
     new_info_list = []
 
-    request_url = "https://ms-finance.p.rapidapi.com/news/list"
-    request_string = {"performanceId": "0P0000OQN8"}
-    request_headers = {
-        'x-rapidapi-host': "ms-finance.p.rapidapi.com",
-        'x-rapidapi-key': os.environ.get("RAPID_API_KEY")
-    }
+    finnhub_client = finnhub.Client(api_key=FINN_API_KEY)
 
-    r = requests.request("GET", request_url, headers=request_headers, params=request_string)
-    if r.status_code == requests.codes.ok:
-        raw_news_json = r.json()
-        for info in raw_news_json:
-            new_info_list.append({'source': info['sourceName'],
-                                  'title': info['title'],
-                                  'date': info['publishedDate']})
+    # this api returns max 100 records, here to trunk it to 10
+    news_info = finnhub_client.general_news('general', min_id=0)[:10]
 
-        print(new_info_list, "**************************")
+    for info in news_info:
+        new_info_list.append({'source': info['source'],
+                              'title': info['headline'],
+                              'image': info['image'],
+                              'url': info['url'],
+                              'date': datetime.fromtimestamp(info['datetime']).strftime('%Y-%m-%d')})
+    # print(f"# of news is {len(new_info_list)} ***********")
+    # print(new_info_list, "**************************")
     return new_info_list
 
 
