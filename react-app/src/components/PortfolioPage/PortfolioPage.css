@@ -249,3 +249,9 @@
     border-top: 1px solid var(--border_grey);
     border-bottom: 1px solid var(--border_grey);
 }
+
+/* news */
+.news_contanier{
+    display: flex;
+    flex-direction: column;
+}

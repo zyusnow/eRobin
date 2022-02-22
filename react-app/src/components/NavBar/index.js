@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import ProfileButton from './ProfileButton';
-import { FaCrow} from 'react-icons/fa';
+import FindMe from './FindMe';
+import { FaCrow, FaGithub, FaLinkedin} from 'react-icons/fa';
 import './NavBar.css'
 
 
@@ -42,6 +43,7 @@ const NavBar = () => {
               <FaCrow className='bird_logo'/>
             </NavLink>
             <SearchBar />
+            <FindMe />
             <ProfileButton user={sessionUser}/>
           </div>
         )

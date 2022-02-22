@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 
 import Watchlist from '../List'
+import News from "./news";
 import './PortfolioPage.css'
 function PortfolioPage() {
 
@@ -20,6 +21,7 @@ function PortfolioPage() {
                     <div className="buying_power_container">
                         Buying Power {sessionUser.curr_balance.toLocaleString('en')}
                     </div>
+                    <News />
                 </div>
                 < Watchlist/>
             </div>
