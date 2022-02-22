@@ -41,4 +41,6 @@ Users can dynamically search for stocks and companies to make investments. The n
 
 
 
-
+## What's next?
+Since this is a two-week capstone project, some features are nice to have later:
+- Dark mode vs Light mode can be a good feature for user to have.
