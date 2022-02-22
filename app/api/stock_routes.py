@@ -60,7 +60,7 @@ def get_stock_info(ticker):
     stock_info = fetch_stock_info(ticker)
     dates, prices = fetch_stock_price(ticker)
 
-    stock_info['date'] = dates
-    stock_info['prices'] = prices
+    stock_info['date'] = dates[::-1]
+    stock_info['prices'] = prices[::-1]
 
     return jsonify(stock_info)

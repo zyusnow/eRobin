@@ -150,6 +150,7 @@
 }
 .wl_ticker{
     text-decoration: none;
+    color:black;
 }
 
 .tickers_container_inner:hover{

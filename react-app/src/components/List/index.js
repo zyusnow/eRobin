@@ -58,7 +58,7 @@ const Watchlist = () => {
                 {holdings && holdingsArr.map((holding) => (
                     <div className="holdings_contanier" key={holding.id}>
                         <div className="holding_info">
-                            <div>{holding.ticker}</div>
+                            <Link className="wl_ticker" to={`/stocks/${holding.ticker}`}><span>{holding.ticker}</span></Link>
                             <div className="holding_shares">{holding.total_shares} shares</div>
                         </div>
                         <div>

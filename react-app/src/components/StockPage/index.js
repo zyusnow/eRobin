@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom'
 import { fetchStockInfo } from "../../store/stocks";
 import "./StockPage.css";
 import Transaction from "./Transaction";
+import StockGraph from "../StockGraph";
 
 
 
@@ -37,10 +38,13 @@ const StockPage = () => {
         history.push('/login');
     }
 
+    // get stock info
     useEffect(() => {
         dispatch(fetchStockInfo(ticker));
     }, [dispatch, ticker]);
 
+    let date = []
+    let prices = []
 
     let price = ""
     let name = ""
@@ -61,6 +65,8 @@ const StockPage = () => {
         sector = stockInfo["sector"]
         marketcap = stockInfo["marketcap"]
         peratio = stockInfo["peratio"]
+        date = stockInfo["date"]
+        prices = stockInfo["prices"]
     }
 
 
@@ -75,11 +81,7 @@ const StockPage = () => {
                             <div>${price}</div>
                         </div>
 
-                        <hr></hr>
-                        <h1>This is the chart</h1>
-                        <h1>This is the chart</h1>
-                        <h1>This is the chart</h1>
-                        <hr></hr>
+                        <StockGraph date={date} prices={prices}/>
 
                         <div className="stock_info_container">
                             <div className="stock_info_header">About
