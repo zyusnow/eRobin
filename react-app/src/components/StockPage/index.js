@@ -68,7 +68,8 @@ const StockPage = () => {
         date = stockInfo["date"]
         prices = stockInfo["prices"]
     }
-
+    // console.log(date)
+    // console.log(prices)
 
     return (
         <div className='stock_container'>
