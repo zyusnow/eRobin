@@ -82,7 +82,7 @@ const StockPage = () => {
                             <div>${price}</div>
                         </div>
 
-                        <StockGraph date={date} prices={prices}/>
+                        {date.length > 0 ? (<StockGraph date={date} prices={prices}/>) : (<h3> Beyond backend api limit. Please revisit the page in the next minute</h3>)}
 
                         <div className="stock_info_container">
                             <div className="stock_info_header">About
