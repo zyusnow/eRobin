@@ -61,8 +61,14 @@ export const login = (email, password) => async (dispatch) => {
     const data = await response.json();
     dispatch(setUser(data))
     return "Success";
+
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
   } else {
-    return "Login failed";
+    return ['An error occurred. Please try again.']
   }
 
 }
@@ -99,9 +105,14 @@ export const signUp = (username, email, password, first_name, last_name) => asyn
     const data = await response.json();
     dispatch(setUser(data))
     return "Success";
-  }
-  else {
-    return "Signup failed"
+
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
   }
 }
 
