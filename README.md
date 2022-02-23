@@ -25,6 +25,11 @@ eRobin does the vast majority of its application logic on the backend, but displ
 ![](https://res.cloudinary.com/dprnsux1z/image/upload/v1645568422/CleanShot_2022-02-22_at_14.19.46_2x_vjjms7.png)
 ![](https://res.cloudinary.com/dprnsux1z/image/upload/v1645568418/CleanShot_2022-02-22_at_14.19.28_2x_xhd2n3.png)
 
+### Portfolio Page
+Users can view gain/loss via portfolio page. They can also manage watchlist on this page as well.
+![](https://res.cloudinary.com/dprnsux1z/image/upload/v1645600979/CleanShot_2022-02-22_at_23.18.59_v3ylsz.gif)
+
+
 ### Stock Page
 Users can make transactions on this page. Buying power and owned shares are both shown dynamically. Users selling more than they owned or buying stocks beyond buying power are both having dynamic error handlings.
 
