@@ -33,7 +33,7 @@ function ProfileButton({ user }) {
 
     return (
       <div className="nav_right">
-        <Link className="nav_link" to='/'>Profile</Link>
+        <Link className="nav_link" to='/'>Portfolio</Link>
         <Link className="nav_link" to='/transactions'>Transactions</Link>
         <button className='nav_right_menu' onClick={openMenu}>
           <i className="fas fa-user-circle"></i>
