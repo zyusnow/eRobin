@@ -21,7 +21,7 @@ function PortfolioPage({user}) {
             <div className="portfolio_container_sub">
                 <div className="portfolio_left">
                     <div className="portfolio_header">Welcome to eRobin</div>
-                    {portfolio ? (<StockGraph date={portfolio['date']} prices={portfolio['prices']} init_balance={user.init_balance}/>):
+                    {(portfolio) ? ((portfolio['date'].length >0) ? <StockGraph date={portfolio['date']} prices={portfolio['prices']} init_balance={user.init_balance}/>: <></>):
                     (<h4>Loading Chart...</h4>)}
                     <div className="buying_power_container">
                         Buying Power {user.curr_balance.toLocaleString('en')}
