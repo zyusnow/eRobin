@@ -76,10 +76,10 @@ const LoginForm = () => {
             />
             <div className='log_container'>
               <button className="login_button" type='submit'>Log In</button>
-              <button onSubmit={DemoLogin} className="login_button demo" type='submit'>Try Demo</button>
             </div>
           </div>
         </form>
+              <button onClick={DemoLogin} className="login_button demo" type='submit'>Try Demo</button>
         <div className='additional'>
           <div>Not on eRobin?</div>
           <div><NavLink className="to_signup" to = "/signup"> Create an account</NavLink></div>
