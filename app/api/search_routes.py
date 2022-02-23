@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify
 
 search_routes = Blueprint("search", __name__)
 
-@search_routes.route("/")
+@search_routes.route("")
 def all_tickers():
     tickers = ['A',
 'AA',
