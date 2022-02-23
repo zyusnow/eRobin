@@ -16,7 +16,7 @@ def get_holdings():
 
 
 @holding_routes.route("/portfolio", methods=["POST"])
-@login_required
+# @login_required
 def get_portfolio():
     print("*********", request.json)
     user_id = request.json['userId']
