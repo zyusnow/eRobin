@@ -30,7 +30,7 @@ def fetch_news_info():
 
 
 stock_news_routes = Blueprint("news", __name__)
-@stock_news_routes.route("/")
+@stock_news_routes.route("")
 def get_news_info():
     new_info_list = fetch_news_info()
     return jsonify(new_info_list)
