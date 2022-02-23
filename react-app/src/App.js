@@ -47,7 +47,7 @@ function App() {
         {user && (
         <Route path='/' exact={true} >
           <NavBar />
-          <PortfolioPage/>
+          <PortfolioPage user={user}/>
         </Route>
         )}
         {user && (

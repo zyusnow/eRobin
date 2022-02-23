@@ -1,26 +1,30 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
+import { getPortfolio } from "../../store/holding";
 
 import Watchlist from '../List'
 import News from "./news";
+import StockGraph from "../StockGraph";
 import './PortfolioPage.css'
 
-function PortfolioPage() {
+function PortfolioPage({user}) {
+    const portfolio = useSelector(state => state?.holding?.portfolio)
+    // console.log(allTickers.slice(0,5))
+    const dispatch = useDispatch()
 
-    const sessionUser = useSelector(state => state?.session?.user);
-
-
+    useEffect(() => {
+        dispatch(getPortfolio(user.id))
+    }, [dispatch, user])
 
     return (
         <div className="portfolio_container">
             <div className="portfolio_container_sub">
                 <div className="portfolio_left">
                     <div className="portfolio_header">Welcome to eRobin</div>
-                    <h1>This is chart</h1>
-                    <h1>This is chart</h1>
-                    <h1>This is chart</h1>
+                    {portfolio ? (<StockGraph date={portfolio['date']} prices={portfolio['prices']} init_balance={user.init_balance}/>):
+                    (<h4>Loading Chart...</h4>)}
                     <div className="buying_power_container">
-                        Buying Power {sessionUser.curr_balance.toLocaleString('en')}
+                        Buying Power {user.curr_balance.toLocaleString('en')}
                     </div>
                     <News />
                 </div>

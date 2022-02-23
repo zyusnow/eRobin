@@ -2,7 +2,10 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 import './StockGraph.css'
-export default function StockGraph({ date, prices }) {
+
+export default function StockGraph({ date, prices, init_balance }) {
+    //console.log(date)
+    //console.log(prices)
     const [showPeriod, setShowPeriod] = useState(90)
     const [minValue, setMinValue] = useState(Math.min(prices))
     const [maxValue, setMaxValue] = useState(Math.max(prices))
@@ -15,6 +18,7 @@ export default function StockGraph({ date, prices }) {
                 <div className="tooltip">
                     <p>{label}</p>
                     <p>${payload[0].value.toLocaleString('en')}</p>
+                    {init_balance && (<p>Profit: {((payload[0].value-init_balance)*100/init_balance).toLocaleString('en')+ "%"}</p>)}
                 </div>
             )
         }

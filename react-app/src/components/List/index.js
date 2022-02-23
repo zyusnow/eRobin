@@ -30,8 +30,9 @@ const Watchlist = () => {
 
     const deleteTicker = async (e) => {
         e.preventDefault();
-        const ticker = e.target.getAttribute('tickername')
-        const tickerId = e.target.getAttribute('tickerid')
+        // console.log(e.currentTarget)
+        const ticker = e.currentTarget.getAttribute('tickername')
+        const tickerId = e.currentTarget.getAttribute('tickerid')
 
         const ticker_to_delete = await dispatch(deleteWatchlistTicker({ticker, tickerId}));
         if (ticker_to_delete) {
@@ -95,8 +96,8 @@ const Watchlist = () => {
                             <div className="tickers_container">
                                 {watchlist.watchlist_tickers.length > 0 && watchlist?.watchlist_tickers.map((ticker) => (
                                     <div className="tickers_container_inner" key={ticker.id}>
-                                        <button type="button" className="w_btn" >
-                                            <FaMinus tickername={ticker.ticker} tickerid={ticker.id} onClick={deleteTicker}/>
+                                        <button type="button" className="w_btn" tickername={ticker.ticker} tickerid={ticker.id} onClick={deleteTicker}>
+                                            <FaMinus/>
                                         </button>
                                         <Link className="wl_ticker" to={`/stocks/${ticker.ticker}`}><span>{ticker.ticker}</span></Link>
                                     </div>

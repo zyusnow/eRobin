@@ -1,6 +1,13 @@
 const SET_HOLDING = "holding/SET_HOLDING";
 const SET_ALL_HOLDING = "holding/SET_ALL_HOLDING";
+const SET_PORTFOLIO = "holding/SET_PORTFOLIO"
 
+const setPortfolio = (portfolio) => {
+  return {
+      type:SET_PORTFOLIO,
+      portfolio
+  }
+}
 
 const setAllHoldings = (holdings) => {
   return {
@@ -16,8 +23,36 @@ const setHolding = (holding) => {
   }
 }
 
+export const getPortfolio = (userId) => async dispatch =>{
+  const response = await fetch(`/api/holding//portfolio`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      userId
+    })
+  })
+  if (response.ok) {
+    const portfolioInfo = await response.json();
+    dispatch(setPortfolio(portfolioInfo));
+    return "Success";
+  }
+  else{
+    return "Fetch portfilio failed"
+  }
+}
+
 export const getAllHoldings = (userId) => async dispatch =>{
-  const response = await fetch(`/api/holding/${userId}/all`)
+  const response = await fetch(`/api/holding//all`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      userId
+    })
+  })
   if (response.ok) {
     const holdings = await response.json();
     dispatch(setAllHoldings(holdings));
@@ -70,6 +105,9 @@ export default function holdingReducer(state=initialState, action) {
     switch (action.type) {
       case SET_HOLDING:
         newState.holding = action.holding;
+        return newState
+      case SET_PORTFOLIO:
+        newState.portfolio = action.portfolio;
         return newState
       case SET_ALL_HOLDING:
         newState.holdings = action.holdings.reduce((holdings, holding) => {
