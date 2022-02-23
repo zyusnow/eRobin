@@ -44,7 +44,7 @@ export const getPortfolio = (userId) => async dispatch =>{
 }
 
 export const getAllHoldings = (userId) => async dispatch =>{
-  const response = await fetch(`/api/holding//all`, {
+  const response = await fetch(`/api/holding/all`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
