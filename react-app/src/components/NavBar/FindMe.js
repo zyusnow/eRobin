@@ -5,8 +5,8 @@ const FindMe = () => {
     return (
         <div className='find_me'>
             <span>Find me:</span>
-            <a className="git_logo" href="https://github.com/zyusnow"><FaGithub /></a>
-            <a href="https://www.linkedin.com/in/mezyu/"><FaLinkedin /></a>
+            <a className="git_logo" href="https://github.com/zyusnow" target="_blank"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/mezyu/" target="_blank"><FaLinkedin /></a>
         </div>
     )
 }

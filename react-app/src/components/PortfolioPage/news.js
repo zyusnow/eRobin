@@ -26,7 +26,7 @@ const News = () => {
                             <img src={oneNews.image}></img>
                         </div>
                         <div className="news_content">
-                            <a href={oneNews.url}>{oneNews.title}</a>
+                            <a href={oneNews.url} target="_blank">{oneNews.title}</a>
                             <span>{oneNews.summary}</span>
                             <div className="news_content_bottom">
                                 <span>{oneNews.source}</span>
