@@ -40,7 +40,6 @@ function AddWatchlistTicker({ ticker }) {
                     }
                 }
                 wlList.push({ 'id': watchlist.id, 'name': watchlist.name, "hasTicker": hasTicker, "ticker": ticker })
-                console.log("0", wlList)
             };
             // now check whether the current ticker exists
             setTickerAdded(tickerFound);
