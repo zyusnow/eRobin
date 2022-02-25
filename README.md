@@ -63,9 +63,7 @@ useEffect(() => {
                     }
                 }
                 wlList.push({ 'id': watchlist.id, 'name': watchlist.name, "hasTicker": hasTicker, "ticker": ticker })
-                console.log("0", wlList)
             };
-            // now check whether the current ticker exists
             setTickerAdded(tickerFound);
             setWatchListAdded(wlList);
         }
@@ -81,12 +79,6 @@ useEffect(() => {
         }
     }
 
-    const handleCancel = (e) => {
-        e.preventDefault();
-        setShowModal(false)
-    }
-
-    // a specific function to allow multiple selection without holding ctrl
     const handleChange = (e) => {
         // unselect -> remove it from list
         if (e.target.checked !== true) {
@@ -114,27 +106,20 @@ def add_ticker():
         wl_name = add_info['name']
         add_ticker = add_info['hasTicker']
         ticker = add_info['ticker']
-
-        # first need to check whether the ticker exists in the watch list
+       
         found_case = WatchlistTicker.query.filter_by(ticker=ticker, watchlist_id=wl_id).first()
 
-        # for adding
         if add_ticker:
-            # add only when no such record in db
             if not found_case:
                 ticker_to_add = WatchlistTicker(
                     ticker=ticker,
                     watchlist_id=wl_id
                 )
-                # print(f"*************** add new ticker {ticker} into {wl_name} ")
                 db.session.add(ticker_to_add)
                 db.session.commit()
                 
-        # for removing or no action
         else:
-            # if there is an existing record, and user doesn't select it, then we need to remove  it from db
             if found_case:
-                # print(f"*************** remove ticker {ticker} from {wl_name} ")
                 db.session.delete(found_case)
                 db.session.commit()
 
