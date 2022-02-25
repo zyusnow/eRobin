@@ -9,7 +9,6 @@ const News = () => {
 
     const news = useSelector(state => state?.news?.news);
     const newsArr = Object.values(news ? news : {})
-    // console.log(newsArr)
 
     useEffect(() => {
         dispatch(fetchNewsInfo());

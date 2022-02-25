@@ -20,9 +20,10 @@ export const getAllTransations = (userId) => async (dispatch) => {
 //reducer
 const initialState = {}
 export default function transactionReducer(state = initialState, action) {
-  let newState = { ...state };
+  let newState;
   switch (action.type) {
     case SET_TRANSACTIONS:
+      newState = {...state}
       newState.transactions = action.transactions.reduce((transactions, transaction) => {
         transactions[transaction.id] = transaction
         return transactions
