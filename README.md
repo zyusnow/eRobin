@@ -44,8 +44,102 @@ Users can dynamically search for stocks and companies to make investments. The n
 ### Transaction Page
 ![](https://res.cloudinary.com/dprnsux1z/image/upload/v1645568179/CleanShot_2022-02-22_at_14.15.38_2x_d5ne5m.png)
 
+## Challenge
+### Add stock to multiple watchlists
+Frontend component
+```
+useEffect(() => {
+        let wlList = [];
+        let tickerFound = false;
+        if (watchlists) {
+            for (let watchlist of watchlistsArr) {
+                let hasTicker = false;
+                for (let wlTicker of watchlist['watchlist_tickers']) {
+                    const tickerName = wlTicker.ticker;
+                    if (ticker === tickerName) {
+                        hasTicker = true;
+                        tickerFound = true;
+                        break;
+                    }
+                }
+                wlList.push({ 'id': watchlist.id, 'name': watchlist.name, "hasTicker": hasTicker, "ticker": ticker })
+                console.log("0", wlList)
+            };
+            // now check whether the current ticker exists
+            setTickerAdded(tickerFound);
+            setWatchListAdded(wlList);
+        }
+    }, [watchlists, ticker, renderPage])
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const res = await dispatch(addWatchlistTicker(watchListAdded));
+        setShowModal(false);
 
+        if (res === "Success") {
+            setRenderPage(!renderPage)
+        }
+    }
+
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setShowModal(false)
+    }
+
+    // a specific function to allow multiple selection without holding ctrl
+    const handleChange = (e) => {
+        // unselect -> remove it from list
+        if (e.target.checked !== true) {
+            // first find the index of matched object
+            const idx = watchListAdded.findIndex((obj => obj.name === e.target.value));
+            watchListAdded[idx]['hasTicker'] = false;
+        }
+        // select -> add it to the list
+        else {
+            const idx = watchListAdded.findIndex((obj => obj.name === e.target.value));
+            watchListAdded[idx]['hasTicker'] = true;
+        }
+        e.target.defaultChecked = !e.target.defaultChecked;
+        setWatchListAdded(watchListAdded);
+    }
+```
+Backend routes:
+```
+@watchlist_routes.route("/add_ticker", methods=['POST'])
+@login_required
+def add_ticker():
+    add_info_list = request.json['addInfo']
+    for add_info in add_info_list:
+        wl_id = add_info['id']
+        wl_name = add_info['name']
+        add_ticker = add_info['hasTicker']
+        ticker = add_info['ticker']
+
+        # first need to check whether the ticker exists in the watch list
+        found_case = WatchlistTicker.query.filter_by(ticker=ticker, watchlist_id=wl_id).first()
+
+        # for adding
+        if add_ticker:
+            # add only when no such record in db
+            if not found_case:
+                ticker_to_add = WatchlistTicker(
+                    ticker=ticker,
+                    watchlist_id=wl_id
+                )
+                # print(f"*************** add new ticker {ticker} into {wl_name} ")
+                db.session.add(ticker_to_add)
+                db.session.commit()
+                
+        # for removing or no action
+        else:
+            # if there is an existing record, and user doesn't select it, then we need to remove  it from db
+            if found_case:
+                # print(f"*************** remove ticker {ticker} from {wl_name} ")
+                db.session.delete(found_case)
+                db.session.commit()
+
+    return "Add ticker successfully"
+```
 ## What's next?
 Since this is a two-week capstone project, some features are nice to have later:
 - Dark mode vs Light mode can be a good feature for user to have.
