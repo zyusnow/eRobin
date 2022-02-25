@@ -2,9 +2,9 @@
 
 ## eRobin at a Glance
 
-eRobin is a full stack web app that uses Flask/Python on the backend and React/Javascript on the front. eRobin utilizes YH Finance, Alpha Vantage Api, Finnhub news Api to render stock infomation like historical charts, relevant news, company data. It was built within two weeks as part of the App Academy bootcamp.
+eRobin is a full stack web app that uses Flask/Python on the backend and React/Javascript on the front. eRobin utilizes YH Finance, Alpha Vantage Api, Finnhub news Api to render stock information like historical charts, relevant news, company data. It was built within two weeks as part of the App Academy bootcamp.
 
-eRobin is inspired by Robinhood that help user make investment easier. Logged in users build a personalized portfolio with the ability to manage watchlists and holdings using real-time data. Users can also search stocks to add to their customized watchlists or make fake transactions. Notice: eRobin is only for developing purposes. 
+eRobin is inspired by Robinhood that helps users make investment easier. Logged in users build a personalized portfolio with the ability to manage watchlists and holdings using real-time data. Users can also search stocks to add to their customized watchlists or make fake transactions. Notice: eRobin is only for developing purposes. 
 
 ## Demo 
 Live Link: https://erobin.herokuapp.com/
