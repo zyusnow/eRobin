@@ -20,12 +20,12 @@ def fetch_stock_info(symbol):
         raw_stock_json = r.json()
         stock_info['price'] = raw_stock_json["price"]["regularMarketPrice"]["raw"]
         stock_info['name'] = raw_stock_json["price"]["longName"]
-        stock_info['about'] = raw_stock_json["assetProfile"]["longBusinessSummary"]
-        stock_info['employees'] =raw_stock_json["assetProfile"]["fullTimeEmployees"]
-        stock_info["country"] = raw_stock_json["assetProfile"]["country"]
-        stock_info["sector"] = raw_stock_json["assetProfile"]["sector"]
-        stock_info["marketcap"] = raw_stock_json["price"]["marketCap"]["fmt"]
-        stock_info["peratio"] = raw_stock_json["summaryDetail"]["forwardPE"]["fmt"]
+        stock_info['about'] = raw_stock_json["assetProfile"].get("longBusinessSummary", "not appliable")
+        stock_info['employees'] =raw_stock_json["assetProfile"].get("fullTimeEmployees", "not appliable")
+        stock_info["country"] = raw_stock_json["assetProfile"].get("country", "not appliable")
+        stock_info["sector"] = raw_stock_json["assetProfile"].get("sector", "not appliable")
+        stock_info["marketcap"] = raw_stock_json["price"]["marketCap"].get('fmt', "no appliable")
+        stock_info["peratio"] = raw_stock_json["summaryDetail"]["forwardPE"].get('fmt', "no appliable")
 
     return stock_info
 

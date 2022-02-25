@@ -18,8 +18,9 @@ def get_holdings():
 @holding_routes.route("/portfolio", methods=["POST"])
 # @login_required
 def get_portfolio():
-    print("*********", request.json)
+    # print(request.json) # {'userId': 1}
     user_id = request.json['userId']
+
     # first fetch all holding stocks
     holdings = Holding.query.filter(Holding.user_id == user_id).all()
     hist_balance = []
@@ -34,11 +35,14 @@ def get_portfolio():
 
         date, prices = fetch_stock_price(ticker)
         hold_balance= [float(p)*share for p in prices]
-
+        # print("******", hold_balance)
+        # print("before-----------", hist_balance)
         if not hist_balance:
             hist_balance = [current_balance] * len(prices)
+            # print("after-----------", hist_balance)
 
         hist_balance = [hold_balance[i] + b for i, b in enumerate(hist_balance)]
+        # print("finaly-----------", hist_balance)
 
         if not hist_date:
             hist_date = date
@@ -46,6 +50,7 @@ def get_portfolio():
     portfolio_info = {}
     portfolio_info['date'] = hist_date
     portfolio_info['prices'] = hist_balance
+    # print("portfolio_info", portfolio_info)
 
     return jsonify(portfolio_info)
 
@@ -56,6 +61,7 @@ def get_holding():
     ticker, user_id = request.json['ticker'], request.json['userId']
     holding_info = Holding.query.filter_by(ticker=ticker, user_id=user_id).first()
 
+    # in buy/sell page, show default infor even if user has no holding on one ticker
     default_holding = {
         'id': "",
         'ticker': ticker,
@@ -89,10 +95,11 @@ def put_order():
     # fetch current balance
     user = User.query.get(user_id)
     current_balance = user.to_dict()['curr_balance']
+    # current_balance = user.curr_balance, this is also working, two ways.
 
     # update holding
     holding_record = Holding.query.filter_by(ticker=ticker, user_id=user_id).first()
-
+    # print("------------", holding_record)
     hold_share = 0
     avg_price = 0
 

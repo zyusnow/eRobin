@@ -1,5 +1,5 @@
 const SET_HOLDING = "holding/SET_HOLDING";
-const SET_ALL_HOLDING = "holding/SET_ALL_HOLDING";
+const SET_ALL_HOLDINGS = "holding/SET_ALL_HOLDING";
 const SET_PORTFOLIO = "holding/SET_PORTFOLIO"
 
 const setPortfolio = (portfolio) => {
@@ -11,7 +11,7 @@ const setPortfolio = (portfolio) => {
 
 const setAllHoldings = (holdings) => {
   return {
-      type:SET_ALL_HOLDING,
+      type:SET_ALL_HOLDINGS,
       holdings
   }
 }
@@ -101,15 +101,18 @@ export const putOrder = (orderInfo) => async dispatch =>{
 
 const initialState = {}
 export default function holdingReducer(state=initialState, action) {
-    let newState = {...state};
+    let newState;
     switch (action.type) {
       case SET_HOLDING:
+        newState = {...state};
         newState.holding = action.holding;
         return newState
       case SET_PORTFOLIO:
+        newState = {...state};
         newState.portfolio = action.portfolio;
         return newState
-      case SET_ALL_HOLDING:
+      case SET_ALL_HOLDINGS:
+        newState = {...state};
         newState.holdings = action.holdings.reduce((holdings, holding) => {
           holdings[holding.id] = holding
           return holdings
