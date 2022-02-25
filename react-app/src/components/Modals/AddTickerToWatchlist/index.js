@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../../../context/Modal'
 import { addWatchlistTicker, getUserWatchlists } from '../../../store/watchlist';
 import { FaPlus, FaCheck, FaLightbulb } from 'react-icons/fa';
-// import '../../../context/Modal.css'
 
 
 function AddWatchlistTicker({ ticker }) {
@@ -41,6 +40,7 @@ function AddWatchlistTicker({ ticker }) {
                     }
                 }
                 wlList.push({ 'id': watchlist.id, 'name': watchlist.name, "hasTicker": hasTicker, "ticker": ticker })
+                console.log("0", wlList)
             };
             // now check whether the current ticker exists
             setTickerAdded(tickerFound);
@@ -56,7 +56,6 @@ function AddWatchlistTicker({ ticker }) {
         if (res === "Success") {
             setRenderPage(!renderPage)
         }
-
     }
 
     const handleCancel = (e) => {
@@ -68,14 +67,12 @@ function AddWatchlistTicker({ ticker }) {
     const handleChange = (e) => {
         // unselect -> remove it from list
         if (e.target.checked !== true) {
-            //console.log("unselect")
             // first find the index of matched object
             const idx = watchListAdded.findIndex((obj => obj.name === e.target.value));
             watchListAdded[idx]['hasTicker'] = false;
         }
         // select -> add it to the list
         else {
-            //console.log("select")
             const idx = watchListAdded.findIndex((obj => obj.name === e.target.value));
             watchListAdded[idx]['hasTicker'] = true;
         }

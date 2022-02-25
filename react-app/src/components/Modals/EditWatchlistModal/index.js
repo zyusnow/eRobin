@@ -20,7 +20,8 @@ function EditWatchlistModal({ watchlistId, renderPage, setRenderPage, setShowMen
             watchlistId,
             name
         }
-
+        // if not using watchlistInfo, can also be editUserWatchlist({watchlistId, name}), match store
+        // if not using {}, can also use (watchlistId, name), just be careful that store should be match as well.
         const data = await dispatch(editUserWatchlist(watchlistInfo))
         if (data.errors) {
             setErrors(data.errors)

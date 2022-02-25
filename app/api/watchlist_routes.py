@@ -71,14 +71,6 @@ def delete_watchlist(id):
 
 
 # add/remove ticker to watchlist routes
-@watchlist_routes.route("/delete_ticker/<int:id>", methods=['PUT'])
-@login_required
-def delete_ticker(id):
-    ticker = WatchlistTicker.query.get(id)
-    db.session.delete(ticker)
-    db.session.commit()
-    return "Delete successfully"
-
 @watchlist_routes.route("/add_ticker", methods=['POST'])
 @login_required
 def add_ticker():
@@ -100,15 +92,25 @@ def add_ticker():
                     ticker=ticker,
                     watchlist_id=wl_id
                 )
-                print(f"*************** add new ticker {ticker} into {wl_name} ")
+                # print(f"*************** add new ticker {ticker} into {wl_name} ")
                 db.session.add(ticker_to_add)
                 db.session.commit()
+                
         # for removing or no action
         else:
             # if there is an existing record, and user doesn't select it, then we need to remove  it from db
             if found_case:
-                print(f"*************** remove ticker {ticker} from {wl_name} ")
+                # print(f"*************** remove ticker {ticker} from {wl_name} ")
                 db.session.delete(found_case)
                 db.session.commit()
 
     return "Add ticker successfully"
+
+
+@watchlist_routes.route("/delete_ticker/<int:id>", methods=['PUT'])
+@login_required
+def delete_ticker(id):
+    ticker = WatchlistTicker.query.get(id)
+    db.session.delete(ticker)
+    db.session.commit()
+    return "Delete successfully"

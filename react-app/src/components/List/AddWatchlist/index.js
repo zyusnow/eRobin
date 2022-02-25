@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { addWatchlist, getUserWatchlists } from "../../../store/watchlist"
+import { addWatchlist } from "../../../store/watchlist"
 
 const AddWatchlist = ({setOpenNewForm, setRenderPage, renderPage}) => {
     const dispatch = useDispatch()
@@ -9,7 +9,6 @@ const AddWatchlist = ({setOpenNewForm, setRenderPage, renderPage}) => {
 
     const [name, setName] = useState("")
     const [errors, setErrors] = useState([])
-
 
     const handleNewWatchlist = async (e) => {
         e.preventDefault()

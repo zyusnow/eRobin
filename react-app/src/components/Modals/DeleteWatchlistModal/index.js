@@ -14,6 +14,7 @@ function DeleteWatchlistModal({watchlistId, renderPage, setRenderPage, setShowMe
             const watchlist_to_delete = await dispatch(deleteUserWatchlist(watchlistId));
             setShowModal(false);
             if (watchlist_to_delete) {
+                // here watchlist_to_delete = "Delete successfully", 
                 setShowModal(false)
                 setRenderPage(!renderPage)
                 setShowMenu(false)

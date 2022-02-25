@@ -7,7 +7,6 @@ import { FaPlus, FaMinus, FaLightbulb } from 'react-icons/fa';
 import AddWatchlist from './AddWatchlist'
 import WatchlistDropdownButton from "./WatchlistDropdownButton";
 import '../PortfolioPage/PortfolioPage.css';
-import PortfolioPage from "../PortfolioPage";
 
 const Watchlist = () => {
     const dispatch = useDispatch();
@@ -24,13 +23,14 @@ const Watchlist = () => {
     const [renderPage, setRenderPage] = useState(true);
     const [openNewForm, setOpenNewForm] = useState(false);
 
+
     const addWatchlist = (e) => {
         setOpenNewForm(true)
     }
 
     const deleteTicker = async (e) => {
         e.preventDefault();
-        // console.log(e.currentTarget)
+        // currentTaregt will not go to deep div vs target
         const ticker = e.currentTarget.getAttribute('tickername')
         const tickerId = e.currentTarget.getAttribute('tickerid')
 

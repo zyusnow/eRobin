@@ -13,6 +13,7 @@ const WatchlistDropdownButton = ({ watchlistId, renderPage, setRenderPage }) => 
         setShowMenu(!showMenu);
     };
 
+
     return (
         <div>
             <button className="wl_dropdown_btn" onClick={openMenu}>
