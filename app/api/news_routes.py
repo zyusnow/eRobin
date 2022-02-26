@@ -25,7 +25,6 @@ def fetch_news_info():
                               'summary':info['summary'],
                               'date': datetime.fromtimestamp(info['datetime']).strftime('%Y-%m-%d')})
     # print(f"# of news is {len(new_info_list)} ***********")
-    # print(new_info_list, "**************************")
     return new_info_list
 
 
@@ -35,4 +34,3 @@ def get_news_info():
     new_info_list = fetch_news_info()
     return jsonify(new_info_list)
 
-holding_routes = Blueprint("holding",__name__)

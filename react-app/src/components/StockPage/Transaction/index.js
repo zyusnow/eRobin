@@ -14,8 +14,8 @@ const Transaction = ({ ticker, price }) => {
     const userId = sessionUser?.id
 
     const holding = useSelector(state => state?.holding?.holding);
-    const [renderPage, setRenderPage] = useState(true);
 
+    const [renderPage, setRenderPage] = useState(true);
     const [buyingPower, setBuyingPower] = useState(0);
     const [stockShare, setStockShare] = useState(0);
 
@@ -89,12 +89,11 @@ const Transaction = ({ ticker, price }) => {
         }
 
         const res = await dispatch(putOrder(orderInfo));
-        // here force re-render page
+
         if (res === "Success") {
             setOrderShare(0);
             setRenderPage(!renderPage);
         }
-
     }
 
     return (
