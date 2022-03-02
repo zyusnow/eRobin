@@ -23,9 +23,10 @@ export const fetchStockInfo = ({ticker}) => async (dispatch) => {
 const initialState = {};
 
 export default function stockInfoReducer(state=initialState, action){
-    let newState = {...state};
+    let newState;
     switch (action.type) {
         case GET_STOCK_INFO:
+            newState = {...state}
             newState.stockInfo = action.stockInfo
             return newState
         default:

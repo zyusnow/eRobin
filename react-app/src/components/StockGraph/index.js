@@ -4,8 +4,6 @@ import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 import './StockGraph.css'
 
 export default function StockGraph({ date, prices, init_balance }) {
-    //console.log(date)
-    //console.log(prices)
     const [showPeriod, setShowPeriod] = useState(90)
     const [minValue, setMinValue] = useState(Math.min(prices))
     const [maxValue, setMaxValue] = useState(Math.max(prices))
@@ -30,9 +28,6 @@ export default function StockGraph({ date, prices, init_balance }) {
             const showData = prices.slice(-showPeriod);
             const minValue = parseInt(Math.min(...showData) * 0.99);
             const mavValue = parseInt(Math.max(...showData) * 1.01);
-            // console.log("hihi", showData)
-            // console.log(minValue);
-            // console.log(maxValue)
 
             setMinValue(minValue);
             setMaxValue(mavValue);

@@ -19,12 +19,16 @@ export const getSearchTickers = () => async dispatch =>{
     }
 }
 
-const initialState = {tickers: []}
+const initialState = {}
 export default function searchReducer(state=initialState, action) {
-    let newState = {...state};
+    let newState;
     switch (action.type) {
       case SET_TICKERS:
-        newState.tickers = action.searchTickers;
+        newState = {...state}
+        newState.tickers = action.searchTickers.reduce((searchTickers, searchTicker) => {
+          searchTickers[searchTicker[0]] = searchTicker
+          return searchTickers
+      }, {})
         return newState
       default:
         return state;

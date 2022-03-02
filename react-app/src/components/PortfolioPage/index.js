@@ -9,7 +9,6 @@ import './PortfolioPage.css'
 
 function PortfolioPage({user}) {
     const portfolio = useSelector(state => state?.holding?.portfolio)
-    // console.log(allTickers.slice(0,5))
     const dispatch = useDispatch()
 
     useEffect(() => {

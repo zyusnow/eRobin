@@ -7,7 +7,8 @@ import "./searchBar.css"
 function SearchBar() {
 
     const allTickers = useSelector(state => state.search.tickers)
-    // console.log(allTickers.slice(0,5))
+    const allTickersArr = Object.values(allTickers ? allTickers : {})
+
     const dispatch = useDispatch()
 
     const [searchContent, setSearchContent] = useState("");
@@ -22,7 +23,7 @@ function SearchBar() {
             setMatchedStocks([])
         }
         else {
-            const matchedRes = allTickers.filter(eachTicker => {
+            const matchedRes = allTickersArr.filter(eachTicker => {
                 return (eachTicker[0].includes(searchContent.toUpperCase())) || (eachTicker[1].toUpperCase().includes(searchContent.toUpperCase()))
             })
             // list top 6 of matched cases

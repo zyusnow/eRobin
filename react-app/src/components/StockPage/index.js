@@ -1,13 +1,11 @@
-
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router";
 import { useHistory } from 'react-router-dom'
 import { fetchStockInfo } from "../../store/stocks";
-import "./StockPage.css";
 import Transaction from "./Transaction";
 import StockGraph from "../StockGraph";
+import "./StockPage.css";
 
 
 
@@ -68,8 +66,6 @@ const StockPage = () => {
         date = stockInfo["date"]
         prices = stockInfo["prices"]
     }
-    // console.log(date)
-    // console.log(prices)
 
     return (
         <div className='stock_container'>
