@@ -9,6 +9,7 @@ function User() {
     if (!userId) {
       return;
     }
+
     (async () => {
       const response = await fetch(`/api/users/${userId}`);
       const user = await response.json();
