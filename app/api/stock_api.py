@@ -2,6 +2,7 @@ import requests
 import os
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
+RAPID_API_KEY = "af7b339a55msh7ef9bd2aa4fa1a1p1fdb27jsn8b3d5983c6ad"#os.environ.get("RAPID_API_KEY")
 price_cache = {} # use this cache when api limition reaches
 
 # collect the basic info of a given stock
@@ -12,7 +13,7 @@ def fetch_stock_info(symbol):
     request_string = {"symbol": symbol.upper(), "region":"US"}
     request_headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
-        'x-rapidapi-key': os.environ.get("RAPID_API_KEY")
+        'x-rapidapi-key': RAPID_API_KEY
     }
 
     r = requests.request("GET", request_url, headers=request_headers, params=request_string)
@@ -34,7 +35,7 @@ def fetch_stock_price(symbol):
     request_string = {"function":"TIME_SERIES_DAILY", "symbol": symbol.upper(), "outputsize":"compact", "datatype":"json"}
     headers = {
         'x-rapidapi-host': "alpha-vantage.p.rapidapi.com",
-        'x-rapidapi-key': os.environ.get("RAPID_API_KEY")
+        'x-rapidapi-key': RAPID_API_KEY
     }
 
     dates = []

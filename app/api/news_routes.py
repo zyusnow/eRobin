@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-FINN_API_KEY = os.environ.get('FINN_API_KEY')
+FINN_API_KEY = "c8ajig2ad3ifo5ns3qng" #os.environ.get('FINN_API_KEY')
 
 # collect the basic info of a given stock
 def fetch_news_info():
@@ -33,4 +33,3 @@ stock_news_routes = Blueprint("news", __name__)
 def get_news_info():
     new_info_list = fetch_news_info()
     return jsonify(new_info_list)
-
