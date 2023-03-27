@@ -10,5 +10,6 @@ def get_stock_info(ticker):
 
     stock_info['date'] = dates
     stock_info['prices'] = prices
+    stock_info['price'] = prices[-1]
 
     return jsonify(stock_info)
